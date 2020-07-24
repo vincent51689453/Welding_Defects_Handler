@@ -59,3 +59,9 @@ def help_event():
     update_console(gs.msg_console,"  \n")
     update_console(gs.msg_console,"** Progress bar is set to 80 percent as demonstration\n")
     progress_bar_update(gs.bar,80)
+
+
+
+
+    
+

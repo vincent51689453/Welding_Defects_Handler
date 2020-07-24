@@ -26,7 +26,7 @@ app_header_text_color = 'white'
 
 #input boundary box canvas
 #--------------------------------------------------------------------
-input_canvas_w = 300
+input_canvas_w = 305
 input_canvas_h = 180
 input_canvas_color = '#292929'
 input_canvas_thick = 0
@@ -143,7 +143,7 @@ line4_msg_xmin, line4_msg_xmax, line4_msg_ymin, line4_msg_ymax = 0,msg_canvas_w-
 
 #control boundary box canvas
 #--------------------------------------------------------------------
-crtl_canvas_w = 300
+crtl_canvas_w = 305
 crtl_canvas_h = 260
 crtl_canvas_color = '#292929'
 crtl_canvas_thick = 0
@@ -156,6 +156,36 @@ crtl_zone_label = "Control Pannel"
 crtl_label_x = 20
 crtl_label_y = 10
 crtl_label_text_color = 'yellow'
+
+crtl_hardware_label = "Detected hardware"
+crtl_hardware_label_size = 9
+crtl_hardware_label_x = 20
+crtl_hardware_label_y = 140
+crtl_hardware_label_color = "PaleTurquoise1"
+
+
+#CPU monitor
+crtl_cpu_label_1 = "CPU:"
+crtl_cpu_label_x = 20
+crtl_cpu_label_y = 170
+crtl_cpu_label_color = "LightSkyBlue1"
+crtl_cpu_label_size = 8
+
+crtl_cpu_model_x = 50
+crtl_cpu_model_y = crtl_cpu_label_y
+crtl_cpu_model_color = "green2"
+
+#GPU monitor check
+crtl_gpu_label_1 = "GPU:"
+crtl_gpu_label_x = 20
+crtl_gpu_label_y = 190
+crtl_gpu_label_color = "LightSkyBlue1"
+crtl_gpu_label_size = 8
+crtl_gpu_model_x = 50
+crtl_gpu_model_y = crtl_gpu_label_y
+crtl_gpu_label_2 = "NVIDIA GPU | CUDA | cuDNN Supported"
+crtl_cpu_model_color = "green2"
+
 
 #confirm button
 crtl_but_text_size = 10

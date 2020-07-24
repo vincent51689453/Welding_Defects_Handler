@@ -27,3 +27,8 @@ bar = None
 confirm_flag = False
 reset_flag = False
 exit_flag = False
+
+
+#Hardware Monitor
+cpu_info = None
+cpu_model = None

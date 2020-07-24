@@ -7,9 +7,16 @@ import app_info
 from PIL import Image,ImageTk
 import app_event
 import global_share as gs
+from cpuinfo import get_cpu_info
+import psutil
 
 #Debug test control
 debug_test = False
+
+def hardware_monitor_event():
+    #Get CPU model
+    gs.cpu_info = get_cpu_info()
+    gs.cpu_model = gs.cpu_info['brand_raw']
 
 
 def clear_console(console):
@@ -140,6 +147,37 @@ def draw_control_boundary(gui_window):
     zone_label = tk.Label(gui_window, text=app_info.crtl_zone_label, font=fontStyle,\
         bg=app_info.app_input1_bg,fg=app_info.crtl_label_text_color)
     zone_label.place(x=app_info.crtl_label_x,y=app_info.crtl_label_y)  
+
+
+    hardware_monitor_event()
+
+    #hardware monitor info
+    fontStyle = tkFont.Font(family=app_info.app_input1_fontstyle, size=app_info.crtl_hardware_label_size)
+    hard_label = tk.Label(gui_window, text=app_info.crtl_hardware_label, font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.crtl_hardware_label_color) 
+    hard_label.place(x=app_info.crtl_hardware_label_x,y=app_info.crtl_hardware_label_y)
+
+
+    #CPU:
+    fontStyle = tkFont.Font(family=app_info.app_input1_fontstyle, size=app_info.crtl_cpu_label_size)
+    cpu_label_1 = tk.Label(gui_window, text=app_info.crtl_cpu_label_1, font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.crtl_cpu_label_color)   
+    cpu_label_1.place(x=app_info.crtl_cpu_label_x,y=app_info.crtl_cpu_label_y)
+
+    #cpu model
+    cpu_label_2 = tk.Label(gui_window, text=gs.cpu_model, font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.crtl_cpu_model_color) 
+    cpu_label_2.place(x=app_info.crtl_cpu_model_x,y=app_info.crtl_cpu_model_y)
+
+    #GPU Support:
+    gpu_label_1 = tk.Label(gui_window, text=app_info.crtl_gpu_label_1 , font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.crtl_gpu_label_color) 
+    gpu_label_1.place(x=app_info.crtl_gpu_label_x,y=app_info.crtl_gpu_label_y)
+
+    #Nvidia GPU
+    gpu_label_2 = tk.Label(gui_window, text=app_info.crtl_gpu_label_2, font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.crtl_cpu_model_color)
+    gpu_label_2.place(x=app_info.crtl_gpu_model_x,y=app_info.crtl_gpu_model_y)
 
 def draw_output_boundary(gui_window):
     gui_window.create_line(app_info.line1_out_xmin,app_info.line1_out_ymin,\
