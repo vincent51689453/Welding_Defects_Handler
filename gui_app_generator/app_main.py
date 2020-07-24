@@ -4,13 +4,16 @@ from tkinter import ttk
 from tkinter import scrolledtext
 import app_info
 from PIL import Image,ImageTk
+import app_event
+import global_share as gs
 
 #Debug test control
-debug_test = True
+debug_test = False
 
-def update_console(consle,text):
-    consle.configure(state='normal')
-    consle.insert(tk.INSERT,text)    
+
+def update_console(console,text):
+    console.configure(state='normal')
+    console.insert(tk.INSERT,text)    
 
 def ai_console_output(gui_window):
     fontStyle = tkFont.Font(family=app_info.app_ai_console_fontstyle, size=app_info.app_ai_console_fontsize)
@@ -38,7 +41,6 @@ def progress_bar_init(gui_window):
     return progress_bar
 
 
-
 def console_init(gui_window):
     fontStyle = tkFont.Font(family=app_info.app_console_fontstyle, size=app_info.app_console_fontsize)
 
@@ -57,7 +59,9 @@ def draw_control_elements(gui_window):
     fontStyle = tkFont.Font(family=app_info.app_header_fontstyle, size=app_info.crtl_but_text_size)
     confirm_button = tk.Button(gui_window, text=app_info.crtl_but_conf_text, \
         bg=app_info.crtl_but_conf_bg,fg=app_info.crlt_but_conf_color,font=fontStyle,\
-            highlightbackground=app_info.input_canvas_color,width=app_info.crtl_but_conf_width)
+        highlightbackground=app_info.input_canvas_color,width=app_info.crtl_but_conf_width, \
+        command=app_event.confirm_lock)
+
     confirm_button.place(x=app_info.crtl_but_conf_x,y=app_info.crtl_but_conf_y)
 
     #reset button
@@ -190,69 +194,71 @@ def main_window_init():
 
 
 def main():
+
     #Setup root window
-    main_window = main_window_init()
+    gs.main_window = main_window_init()
 
    
     #Setup canvas for input zone
-    input_area = tk.Canvas(main_window, width=app_info.input_canvas_w, height=app_info.input_canvas_h,\
+    gs.input_area = tk.Canvas(gs.main_window, width=app_info.input_canvas_w, height=app_info.input_canvas_h,\
         bg = app_info.input_canvas_color, bd = app_info.input_canvas_thick, highlightthickness=app_info.input_canvas_highlight)
-    input_area.place(x=app_info.input_canvas_x,y=app_info.input_canvas_y)
+    gs.input_area.place(x=app_info.input_canvas_x,y=app_info.input_canvas_y)
 
     #Setup different input interfaces on input canvas
-    current_label, current_entry = input_current_init(input_area)
-    speed_label, speed_entry = speed_init(input_area)
-    flow_rate_lable, flow_rate_entry = flow_rate_init(input_area)
+    current_label, current_entry = input_current_init(gs.input_area)
+    speed_label, speed_entry = speed_init(gs.input_area)
+    flow_rate_lable, flow_rate_entry = flow_rate_init(gs.input_area)
 
     #Draw input boundary boxes
-    draw_input_bondary(input_area)
+    draw_input_bondary(gs.input_area)
 
     #Setup canvas for message zone
-    message_area = tk.Canvas(main_window,width=app_info.msg_canvas_w, height=app_info.msg_canvas_h,\
+    gs.message_area = tk.Canvas(gs.main_window,width=app_info.msg_canvas_w, height=app_info.msg_canvas_h,\
         bg = app_info.msg_canvas_color, bd = app_info.msg_canvas_thick, highlightthickness=app_info.msg_canvas_highlight)
-    message_area.place(x=app_info.msg_canvas_x,y=app_info.msg_canvas_y)
+    gs.message_area.place(x=app_info.msg_canvas_x,y=app_info.msg_canvas_y)
 
     #Draw message boundary boxes
-    draw_message_boundary(message_area)
+    draw_message_boundary(gs.message_area)
 
     #Setup canvas for control
-    control_area = tk.Canvas(main_window,width=app_info.crtl_canvas_w, height=app_info.crtl_canvas_h,\
+    gs.control_area = tk.Canvas(gs.main_window,width=app_info.crtl_canvas_w, height=app_info.crtl_canvas_h,\
         bg = app_info.crtl_canvas_color, bd = app_info.crtl_canvas_thick, highlightthickness=app_info.crtl_canvas_highlight)
-    control_area.place(x=app_info.crtl_canvas_x,y=app_info.crtl_canvas_y)
+    gs.control_area.place(x=app_info.crtl_canvas_x,y=app_info.crtl_canvas_y)
 
     #Draw control boundary boxes
-    draw_control_boundary(control_area)
-
+    draw_control_boundary(gs.control_area)
+  
     #Draw control elements
-    draw_control_elements(control_area)
+    draw_control_elements(gs.control_area)
 
     #Setup canvas for output zone
-    output_area = tk.Canvas(main_window,width=app_info.out_canvas_w, height=app_info.out_canvas_h,\
+    gs.output_area = tk.Canvas(gs.main_window,width=app_info.out_canvas_w, height=app_info.out_canvas_h,\
         bg = app_info.out_canvas_color, bd = app_info.out_canvas_thick, highlightthickness=app_info.out_canvas_highlight)
-    output_area.place(x=app_info.out_canvas_x,y=app_info.out_canvas_y)    
+    gs.output_area.place(x=app_info.out_canvas_x,y=app_info.out_canvas_y)    
 
     #Draw output boundary boxes
-    draw_output_boundary(output_area)
+    draw_output_boundary(gs.output_area)
 
     #Import terminal 
-    msg_console =console_init(message_area)
+    gs.msg_console = console_init(gs.message_area)
 
     #Import progress bar
-    bar = progress_bar_init(control_area)
+    gs.bar = progress_bar_init(gs.control_area)
  
 
     #Import AI output console
-    ai_console = ai_console_output(output_area)
+    gs.ai_console = ai_console_output(gs.output_area)
+
 
     if(debug_test):
         #update progress bar
-        progress_bar_update(bar,30)
+        progress_bar_update(gs.bar,30)
         #Display text on different consoles
-        update_console(msg_console,"msg_console")
-        update_console(ai_console,"ai_console")
+        update_console(gs.msg_console,"msg_console")
+        update_console(gs.ai_console,"ai_console")
 
     
-    main_window.mainloop()
+    gs.main_window.mainloop()
 
 
 
