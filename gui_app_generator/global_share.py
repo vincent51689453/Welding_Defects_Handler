@@ -13,6 +13,12 @@ output_area = None
 msg_console = None
 ai_console = None
 
+#User input
+current_entry = 0
+speed_entry = 0
+flow_rate_entry = 0
+
+
 #Progress bar
 bar = None
 

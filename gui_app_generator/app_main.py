@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.font as tkFont
 from tkinter import ttk
 from tkinter import scrolledtext
+from tkinter import END
 import app_info
 from PIL import Image,ImageTk
 import app_event
@@ -9,6 +10,11 @@ import global_share as gs
 
 #Debug test control
 debug_test = False
+
+
+def clear_console(console):
+    #Clear console contents
+    console.delete('1.0',END)
 
 
 def update_console(console,text):
@@ -216,9 +222,9 @@ def main():
     gs.input_area.place(x=app_info.input_canvas_x,y=app_info.input_canvas_y)
 
     #Setup different input interfaces on input canvas
-    current_label, current_entry = input_current_init(gs.input_area)
-    speed_label, speed_entry = speed_init(gs.input_area)
-    flow_rate_lable, flow_rate_entry = flow_rate_init(gs.input_area)
+    current_label, gs.current_entry = input_current_init(gs.input_area)
+    speed_label, gs.speed_entry = speed_init(gs.input_area)
+    flow_rate_lable, gs.flow_rate_entry = flow_rate_init(gs.input_area)
 
     #Draw input boundary boxes
     draw_input_bondary(gs.input_area)
