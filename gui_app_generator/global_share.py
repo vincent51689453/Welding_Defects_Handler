@@ -19,3 +19,5 @@ bar = None
 
 #Event Handler
 confirm_flag = False
+reset_flag = False
+exit_flag = False

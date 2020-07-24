@@ -175,6 +175,16 @@ crtl_but_reset_bg = 'cyan4'
 crlt_but_reset_color = 'white'
 crtl_but_reset_width = 8
 
+
+#exit button
+crtl_but_text_size = 10
+crtl_but_exit_text = 'Exit'
+crtl_but_exit_x = 20
+crtl_but_exit_y = 95
+crtl_but_exit_bg = 'cyan4'
+crlt_but_exit_color = 'white'
+crtl_but_exit_width = 8
+
 #Left
 line1_crtl_xmin, line1_crtl_xmax, line1_crtl_ymin, line1_crtl_ymax = 0,0,0,crtl_canvas_h-1
 #Right

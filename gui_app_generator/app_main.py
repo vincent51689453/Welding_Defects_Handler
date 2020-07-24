@@ -48,7 +48,8 @@ def console_init(gui_window):
         width=app_info.text_box_w,height=app_info.text_box_h,font=fontStyle)
 
     console_text.grid(column=0,pady=10,padx=10)
-    console_text.configure(state='disabled',background=app_info.app_console_background,foreground=app_info.app_console_foreground)
+    console_text.configure(state='disabled',background=app_info.app_console_background,\
+    foreground=app_info.app_console_foreground)
     console_text.place(x=app_info.text_box_x,y=app_info.text_box_y)
 
     return console_text
@@ -60,7 +61,7 @@ def draw_control_elements(gui_window):
     confirm_button = tk.Button(gui_window, text=app_info.crtl_but_conf_text, \
         bg=app_info.crtl_but_conf_bg,fg=app_info.crlt_but_conf_color,font=fontStyle,\
         highlightbackground=app_info.input_canvas_color,width=app_info.crtl_but_conf_width, \
-        command=app_event.confirm_lock)
+        command=app_event.confirm_event)
 
     confirm_button.place(x=app_info.crtl_but_conf_x,y=app_info.crtl_but_conf_y)
 
@@ -68,8 +69,18 @@ def draw_control_elements(gui_window):
     fontStyle = tkFont.Font(family=app_info.app_header_fontstyle, size=app_info.crtl_but_text_size)
     reset_button = tk.Button(gui_window, text=app_info.crtl_but_reset_text, \
         bg=app_info.crtl_but_reset_bg,fg=app_info.crlt_but_reset_color,font=fontStyle,\
-            highlightbackground=app_info.input_canvas_color,width=app_info.crtl_but_reset_width)
+            highlightbackground=app_info.input_canvas_color,width=app_info.crtl_but_reset_width,\
+            command=app_event.reset_event)
     reset_button.place(x=app_info.crtl_but_reset_x,y=app_info.crtl_but_reset_y)
+
+    #exit button
+    fontStyle = tkFont.Font(family=app_info.app_header_fontstyle, size=app_info.crtl_but_text_size)
+    exit_button = tk.Button(gui_window, text=app_info.crtl_but_exit_text, \
+        bg=app_info.crtl_but_exit_bg,fg=app_info.crlt_but_exit_color,font=fontStyle,\
+            highlightbackground=app_info.input_canvas_color,width=app_info.crtl_but_exit_width,\
+            command=app_event.exit_event)
+    exit_button.place(x=app_info.crtl_but_exit_x,y=app_info.crtl_but_exit_y)    
+
 
 def draw_input_bondary(gui_window):
     gui_window.create_line(app_info.line1_xmin,app_info.line1_ymin,\
