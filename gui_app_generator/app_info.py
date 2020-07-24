@@ -66,12 +66,15 @@ app_input1_text_color = 'white'
 app_input1_box_w = 8
 app_input1_box_x = app_input1_x+180
 app_input1_box_y = app_input1_y
+app_input1_box_bg = app_input1_bg
+app_input1_box_fg = 'white'
 #--------------------------------------------------------------------
 
 #current speed (input2)
 #--------------------------------------------------------------------
 current_speed_style_1 = "Lucida Grande"
 current_speed_style_2 = "DejaVu Serif"
+
 
 app_input2_header = 'Speed (In/min):'
 app_input2_fontstyle = current_speed_style_2
@@ -85,6 +88,8 @@ app_input2_text_color = 'white'
 app_input2_box_w = 8
 app_input2_box_x = app_input2_x+180
 app_input2_box_y = app_input2_y
+app_input2_box_bg = app_input2_bg
+app_input2_box_fg = 'white'
 #--------------------------------------------------------------------
 
 
@@ -105,6 +110,8 @@ app_input3_text_color = 'white'
 app_input3_box_w = 8
 app_input3_box_x = app_input3_x+180
 app_input3_box_y = app_input3_y
+app_input3_box_bg = app_input3_bg
+app_input3_box_fg = 'white'
 #--------------------------------------------------------------------
 
 #message boundary box canvas
@@ -152,11 +159,21 @@ crtl_label_text_color = 'yellow'
 
 #confirm button
 crtl_but_text_size = 10
-crtl_but_conf_text = 'CONFIRM'
+crtl_but_conf_text = 'Confirm'
 crtl_but_conf_x = 20
 crtl_but_conf_y = 45
-crtl_but_conf_bg = 'DeepSkyBlue2'
+crtl_but_conf_bg = 'cyan4'
 crlt_but_conf_color = 'white'
+crtl_but_conf_width = 8
+
+#reset button
+crtl_but_text_size = 10
+crtl_but_reset_text = 'Reset'
+crtl_but_reset_x = 160
+crtl_but_reset_y = 45
+crtl_but_reset_bg = 'cyan4'
+crlt_but_reset_color = 'white'
+crtl_but_reset_width = 8
 
 #Left
 line1_crtl_xmin, line1_crtl_xmax, line1_crtl_ymin, line1_crtl_ymax = 0,0,0,crtl_canvas_h-1
@@ -193,6 +210,41 @@ line2_out_xmin, line2_out_xmax, line2_out_ymin, line2_out_ymax = out_canvas_w-1,
 line3_out_xmin, line3_out_xmax, line3_out_ymin, line3_out_ymax = 0,out_canvas_w-1,0,0
 #Bottom
 line4_out_xmin, line4_out_xmax, line4_out_ymin, line4_out_ymax = 0,out_canvas_w-1,out_canvas_h-1,out_canvas_h-1
+#--------------------------------------------------------------------
+
+#console terminal
+#--------------------------------------------------------------------
+app_console_fontstyle = "DejaVu Serif"
+app_console_fontsize = 12
+app_console_background = 'black'
+app_console_foreground = 'white'
+text_box_w = 39
+text_box_h = 21
+text_box_x = 20
+text_box_y = 40
+#--------------------------------------------------------------------
+
+
+#progress bar
+#--------------------------------------------------------------------
+bar_x = 20
+bar_y = 227
+bar_length = 250
+#--------------------------------------------------------------------
+
+
+#ai output console terminal
+#--------------------------------------------------------------------
+
+app_ai_console_fontstyle = "DejaVu Serif"
+app_ai_console_fontsize = 12
+app_ai_console_background = 'black'
+app_ai_console_foreground = 'white'
+text_ai_box_w = 60
+text_ai_box_h = 1
+text_ai_box_x = 130
+text_ai_box_y = 10
+
 #--------------------------------------------------------------------
 """
 TKinter design reference
