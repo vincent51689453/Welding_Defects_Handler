@@ -215,11 +215,11 @@ line4_out_xmin, line4_out_xmax, line4_out_ymin, line4_out_ymax = 0,out_canvas_w-
 #console terminal
 #--------------------------------------------------------------------
 app_console_fontstyle = "DejaVu Serif"
-app_console_fontsize = 12
+app_console_fontsize = 10
 app_console_background = 'black'
 app_console_foreground = 'white'
-text_box_w = 39
-text_box_h = 21
+text_box_w = 49
+text_box_h = 24
 text_box_x = 20
 text_box_y = 40
 #--------------------------------------------------------------------
@@ -228,7 +228,7 @@ text_box_y = 40
 #progress bar
 #--------------------------------------------------------------------
 bar_x = 20
-bar_y = 227
+bar_y = 230
 bar_length = 250
 #--------------------------------------------------------------------
 
