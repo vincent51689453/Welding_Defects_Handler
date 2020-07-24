@@ -124,7 +124,7 @@ msg_canvas_highlight = 0
 msg_canvas_x = 340
 msg_canvas_y = 60
 
-msg_zone_label = "AI System Message"
+msg_zone_label = "AI System Console"
 #based on message canvas
 msg_label_x = 20
 msg_label_y = 10
@@ -184,6 +184,17 @@ crtl_but_exit_y = 95
 crtl_but_exit_bg = 'cyan4'
 crlt_but_exit_color = 'white'
 crtl_but_exit_width = 8
+
+#help button
+crtl_but_text_size = 10
+crtl_but_help_text = 'Help'
+crtl_but_help_x = 160
+crtl_but_help_y = 95
+crtl_but_help_bg = 'cyan4'
+crlt_but_help_color = 'white'
+crtl_but_help_width = 8
+
+
 
 #Left
 line1_crtl_xmin, line1_crtl_xmax, line1_crtl_ymin, line1_crtl_ymax = 0,0,0,crtl_canvas_h-1

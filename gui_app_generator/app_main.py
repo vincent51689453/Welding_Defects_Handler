@@ -87,6 +87,14 @@ def draw_control_elements(gui_window):
             command=app_event.exit_event)
     exit_button.place(x=app_info.crtl_but_exit_x,y=app_info.crtl_but_exit_y)    
 
+    #help button
+    fontStyle = tkFont.Font(family=app_info.app_header_fontstyle, size=app_info.crtl_but_text_size)
+    exit_button = tk.Button(gui_window, text=app_info.crtl_but_help_text, \
+        bg=app_info.crtl_but_help_bg,fg=app_info.crlt_but_help_color,font=fontStyle,\
+            highlightbackground=app_info.input_canvas_color,width=app_info.crtl_but_help_width,\
+            command=app_event.help_event)
+    exit_button.place(x=app_info.crtl_but_help_x,y=app_info.crtl_but_help_y)    
+
 
 def draw_input_bondary(gui_window):
     gui_window.create_line(app_info.line1_xmin,app_info.line1_ymin,\

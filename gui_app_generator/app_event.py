@@ -43,3 +43,19 @@ def exit_event():
     exit_flag = True
     gs.main_window.destroy()
 
+
+def help_event():
+    #When help button is pressed
+    update_console(gs.msg_console,"<<<  Help Center  >>>\n")
+    update_console(gs.msg_console,"1. Input one of the parameters that you want to fix\n")
+    update_console(gs.msg_console,"2. Press confirm to start the AI generator\n")
+    update_console(gs.msg_console,"3. The progress bar will be filled once the analyze is done\n")
+    update_console(gs.msg_console,"4. The resutls will be displayed in <AI Output> console\n")
+    update_console(gs.msg_console,"  \n")
+    update_console(gs.msg_console,"** <Reset button> helps to clean all the consoles up\n")
+    update_console(gs.msg_console,"** <Exit button> helps to close the program\n")
+    update_console(gs.msg_console,"** <Help button> helps to open the help center\n")
+    update_console(gs.msg_console,"** <Help button> helps to open the help center\n")
+    update_console(gs.msg_console,"  \n")
+    update_console(gs.msg_console,"** Progress bar is set to 80 percent as demonstration\n")
+    progress_bar_update(gs.bar,80)
