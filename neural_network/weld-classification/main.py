@@ -10,6 +10,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
+from tensorflow import keras
 from tensorflow.keras import Sequential  # there are two types of model in Keras: Sequential and Model
 from tensorflow.keras.layers import Dense, Dropout  # imported to build input, hidden and output layers
 from tensorflow.keras import optimizers
@@ -112,12 +113,15 @@ plt.show()
 eval_model = classifier.evaluate(x_train, y_train)
 print("Eval model is printed here: ", eval_model)
 
-#saved trained model
-classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN.h5')
-print("Model saved and exported!")
 
 # here we predict the output for our test dataset
+print("-----------------------------------------------")
+print(x_test)
+
 y_pred = classifier.predict(x_test)
+
+print(y_pred)
+print("-----------------------------------------------")
 
 # pd.DataFrame(y_pred).to_csv("C:\\Users\\nurizdau\\Desktop\\predicted_probs.csv")
 
@@ -153,3 +157,16 @@ print("Time spent to execute this program is %s seconds" % (time.time() - start_
 
 # print("The train set is: ", sc.inverse_transform(x_train))
 # print("The train set is: ", sc.inverse_transform(x_test))
+
+#saved trained model
+classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN.h5')
+print("Model saved and exported!")
+
+
+classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN.h5')
+print(x_test)
+
+y_pred_new = classifier_new.predict(x_test)
+
+print(y_pred_new)
+

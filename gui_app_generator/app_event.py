@@ -25,10 +25,27 @@ def confirm_event():
         c = 0
     else:
         c = gs.flow_rate_entry.get()
+
     update_console(gs.msg_console,"[INFO] Captured initial parameters ...\n")
     update_console(gs.msg_console,"[INFO] current: "+str(a)+ " speed: "+str(b)\
         +" flow_rate: "+str(c) +"\n")
+    
+    #Starts AI core
+    gs.AI_current = a
+    gs.AI_speed = b
+    gs.AI_flow = c
 
+    AI_anaylze = False
+
+    print(gs.AI_flow)
+    
+    #AI analyze
+    gs.AI_input_vector,gs.AI_total=AI.generate_input_vector(gs.AI_current,gs.AI_speed,gs.AI_flow)
+    AI_anaylze,gs.AI_total,gs.AI_score = AI.classification(gs.AI_input_vector,gs.AI_total)
+    if(AI_anaylze == True):
+        #Finding optimal parameters
+        update_console(gs.msg_console,"  \n")
+        AI.optimization(gs.AI_score,gs.AI_total)
 
 def reset_event():
     #When reset button is pressed

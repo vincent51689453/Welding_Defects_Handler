@@ -34,3 +34,12 @@ exit_flag = False
 #Hardware Monitor
 cpu_info = None
 cpu_model = None
+
+
+#AI
+AI_current = 0
+AI_speed = 0
+AI_flow = 0
+AI_input_vector = None
+AI_total = 0
+AI_score = []
