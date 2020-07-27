@@ -27,16 +27,32 @@ def update_console(console,text):
     console.insert(tk.INSERT,text)    
 
 def ai_console_output(gui_window):
-    fontStyle = tkFont.Font(family=app_info.app_ai_console_fontstyle, size=app_info.app_ai_console_fontsize)
+    fontStyle = tkFont.Font(family=app_info.app_ai_console_l_fontstyle, size=app_info.app_ai_console_l_fontsize)
 
-    console_ai_text = scrolledtext.ScrolledText(gui_window, wrap=tk.WORD,\
-        width=app_info.text_ai_box_w,height=app_info.text_ai_box_h,font=fontStyle)
+    #Console (Left)
+    console_ai_text_L = scrolledtext.ScrolledText(gui_window, wrap=tk.WORD,\
+        width=app_info.text_ai_box_w_l,height=app_info.text_ai_box_h_l,font=fontStyle)
 
-    console_ai_text.grid(column=0,pady=10,padx=10)
-    console_ai_text.configure(state='disabled',background=app_info.app_ai_console_background,foreground=app_info.app_ai_console_foreground)
-    console_ai_text.place(x=app_info.text_ai_box_x,y=app_info.text_ai_box_y)
+    console_ai_text_L.grid(column=0,pady=10,padx=10)
+    console_ai_text_L.configure(state='disabled',background=app_info.app_ai_console_l_background,foreground=app_info.app_ai_console_l_foreground)
+    console_ai_text_L.place(x=app_info.text_ai_box_x_l,y=app_info.text_ai_box_y_l)
 
-    return console_ai_text
+    #Console (middle)
+    console_ai_text_M = scrolledtext.ScrolledText(gui_window, wrap=tk.WORD,\
+        width=app_info.text_ai_box_w_m,height=app_info.text_ai_box_h_m,font=fontStyle)
+
+    console_ai_text_M.grid(column=0,pady=10,padx=10)
+    console_ai_text_M.configure(state='disabled',background=app_info.app_ai_console_m_background,foreground=app_info.app_ai_console_m_foreground)
+    console_ai_text_M.place(x=app_info.text_ai_box_x_m,y=app_info.text_ai_box_y_m)
+
+    #Console (right)
+    console_ai_text_R = scrolledtext.ScrolledText(gui_window, wrap=tk.WORD,\
+        width=app_info.text_ai_box_w_r,height=app_info.text_ai_box_h_r,font=fontStyle)
+
+    console_ai_text_R.grid(column=0,pady=10,padx=10)
+    console_ai_text_R.configure(state='disabled',background=app_info.app_ai_console_r_background,foreground=app_info.app_ai_console_r_foreground)
+    console_ai_text_R.place(x=app_info.text_ai_box_x_r,y=app_info.text_ai_box_y_r)
+    return console_ai_text_L,console_ai_text_M,console_ai_text_R
 
 
 def progress_bar_update(indicator,work_done):
@@ -312,14 +328,16 @@ def main():
     gs.bar = progress_bar_init(gs.control_area)
 
     #Import AI output console
-    gs.ai_console = ai_console_output(gs.output_area)
+    gs.ai_console_left,gs.ai_console_middle,gs.ai_console_right = ai_console_output(gs.output_area)
 
     if(debug_test):
         #update progress bar
         progress_bar_update(gs.bar,30)
         #Display text on different consoles
         update_console(gs.msg_console,"msg_console")
-        update_console(gs.ai_console,"ai_console")
+        update_console(gs.ai_console_left,"ai_console LEFT")
+        update_console(gs.ai_console_middle,"ai_console MIDDLE")
+        update_console(gs.ai_console_right,"ai_console Right")
 
     
     gs.main_window.mainloop()

@@ -11,7 +11,9 @@ output_area = None
 
 #Consoles
 msg_console = None
-ai_console = None
+ai_console_left = None
+ai_console_middle = None
+ai_console_right = None
 
 #User input
 current_entry = 0

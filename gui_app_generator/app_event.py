@@ -36,7 +36,9 @@ def reset_event():
     progress_bar_update(gs.bar,0)
     #Remove console output
     clear_console(gs.msg_console)
-    clear_console(gs.ai_console)
+    clear_console(gs.ai_console_left)
+    clear_console(gs.ai_console_middle)
+    clear_console(gs.ai_console_right)
 
 def exit_event():
     #When exit button is pressed

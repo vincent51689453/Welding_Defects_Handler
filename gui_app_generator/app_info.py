@@ -292,15 +292,35 @@ bar_length = 250
 
 #ai output console terminal
 #--------------------------------------------------------------------
+#Console_left
+app_ai_console_l_fontstyle = "DejaVu Serif"
+app_ai_console_l_fontsize = 12
+app_ai_console_l_background = 'black'
+app_ai_console_l_foreground = 'white'
+text_ai_box_w_l = 18
+text_ai_box_h_l = 1
+text_ai_box_x_l = 130
+text_ai_box_y_l = 10
 
-app_ai_console_fontstyle = "DejaVu Serif"
-app_ai_console_fontsize = 12
-app_ai_console_background = 'black'
-app_ai_console_foreground = 'white'
-text_ai_box_w = 60
-text_ai_box_h = 1
-text_ai_box_x = 130
-text_ai_box_y = 10
+#Console_middle
+app_ai_console_m_fontstyle = "DejaVu Serif"
+app_ai_console_m_fontsize = 12
+app_ai_console_m_background = 'black'
+app_ai_console_m_foreground = 'white'
+text_ai_box_w_m = 18
+text_ai_box_h_m = 1
+text_ai_box_x_m = 340
+text_ai_box_y_m = 10
+
+#Console_right
+app_ai_console_r_fontstyle = "DejaVu Serif"
+app_ai_console_r_fontsize = 12
+app_ai_console_r_background = 'black'
+app_ai_console_r_foreground = 'white'
+text_ai_box_w_r = 18
+text_ai_box_h_r = 1
+text_ai_box_x_r = 550
+text_ai_box_y_r = 10
 
 #--------------------------------------------------------------------
 """
