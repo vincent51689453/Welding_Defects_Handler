@@ -18,11 +18,9 @@ def hardware_monitor_event():
     gs.cpu_info = get_cpu_info()
     gs.cpu_model = gs.cpu_info['brand_raw']
 
-
 def clear_console(console):
     #Clear console contents
     console.delete('1.0',END)
-
 
 def update_console(console,text):
     console.configure(state='normal')
@@ -157,6 +155,11 @@ def draw_control_boundary(gui_window):
         bg=app_info.app_input1_bg,fg=app_info.crtl_hardware_label_color) 
     hard_label.place(x=app_info.crtl_hardware_label_x,y=app_info.crtl_hardware_label_y)
 
+    #Progress:
+    fontStyle = tkFont.Font(family=app_info.bar_text_fontstyle, size=app_info.bar_text_font_size)
+    progress_label = tk.Label(gui_window, text=app_info.bar_text, font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.bar_text_color)
+    progress_label.place(x=app_info.bar_text_x,y=app_info.bar_text_y)
 
     #CPU:
     fontStyle = tkFont.Font(family=app_info.app_input1_fontstyle, size=app_info.crtl_cpu_label_size)
@@ -307,11 +310,9 @@ def main():
 
     #Import progress bar
     gs.bar = progress_bar_init(gs.control_area)
- 
 
     #Import AI output console
     gs.ai_console = ai_console_output(gs.output_area)
-
 
     if(debug_test):
         #update progress bar

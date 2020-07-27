@@ -160,14 +160,14 @@ crtl_label_text_color = 'yellow'
 crtl_hardware_label = "Detected hardware"
 crtl_hardware_label_size = 9
 crtl_hardware_label_x = 20
-crtl_hardware_label_y = 140
+crtl_hardware_label_y = 190
 crtl_hardware_label_color = "PaleTurquoise1"
 
 
 #CPU monitor
 crtl_cpu_label_1 = "CPU:"
 crtl_cpu_label_x = 20
-crtl_cpu_label_y = 170
+crtl_cpu_label_y = 210
 crtl_cpu_label_color = "LightSkyBlue1"
 crtl_cpu_label_size = 8
 
@@ -178,7 +178,7 @@ crtl_cpu_model_color = "green2"
 #GPU monitor check
 crtl_gpu_label_1 = "GPU:"
 crtl_gpu_label_x = 20
-crtl_gpu_label_y = 190
+crtl_gpu_label_y = 230
 crtl_gpu_label_color = "LightSkyBlue1"
 crtl_gpu_label_size = 8
 crtl_gpu_model_x = 50
@@ -278,8 +278,14 @@ text_box_y = 40
 
 #progress bar
 #--------------------------------------------------------------------
+bar_text_fontstyle = "DejaVu Serif"
+bar_text = "Progress"
+bar_text_font_size = crtl_hardware_label_size
+bar_text_color = crtl_hardware_label_color
+bar_text_x = 20
+bar_text_y = 140
 bar_x = 20
-bar_y = 230
+bar_y = 165
 bar_length = 250
 #--------------------------------------------------------------------
 
