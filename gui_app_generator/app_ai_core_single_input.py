@@ -12,7 +12,7 @@ input_vector_ai = np.array([input_vector])
 
 
 #The model is trained and output with neural_network/main.py
-classifier = keras.models.load_model('./ANN.h5')
+classifier = keras.models.load_model('./ANN_200.h5')
 
 
 defects = classifier.predict(input_vector_ai)

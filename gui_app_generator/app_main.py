@@ -22,11 +22,14 @@ def clear_console(console):
     #Clear console contents
     console.delete('1.0',END)
 
-def update_console(console,text):
+def update_console(console,text,auto_scroll=True):
     console.configure(state='normal')
     console.insert(tk.INSERT,text)
     #auto scrolled
-    console.yview(END)    
+    if(auto_scroll == True):
+        console.yview(END) 
+
+
 
 def ai_console_output(gui_window):
     fontStyle = tkFont.Font(family=app_info.app_ai_console_l_fontstyle, size=app_info.app_ai_console_l_fontsize)

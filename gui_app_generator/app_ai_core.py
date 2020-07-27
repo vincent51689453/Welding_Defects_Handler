@@ -127,7 +127,7 @@ def classification(ai_input,iterations):
         # standardizing the input feature
         nn_input = scale(nn_input)
         nn_input = np.array([nn_input])
-        classifier = keras.models.load_model('./ANN.h5')
+        classifier = keras.models.load_model('./ANN_200.h5')
         defects = classifier.predict(nn_input)
 
         defects_raw = defects
@@ -163,6 +163,9 @@ def classification(ai_input,iterations):
 
         progress_bar_update(gs.bar,progress_ratio)
 
+        #update root window
+        gs.main_window.update()
+
         nn_input = None
         classifier = None
         defects = None
@@ -180,17 +183,19 @@ def classification(ai_input,iterations):
 def optimization(score_list,iterations):
     i = 0
     min_score = 999.99
+    min_index = 0
     nn_1,nn_2,nn_3,nn_4 = 0.0,0.0,0.0,0.0
-    print(score_list)
     update_console(gs.msg_console,"[AI] Total numbers of parameters: "+str(iterations)+"\n")
-    update_console(gs.msg_console,"[AI] Starts optimizing parameters.. ")
+    update_console(gs.msg_console,"[AI] Starts optimizing parameters.. \n")
     while(i<(iterations-1)):
         #i = each prediciton output
         #0 = extract 1d vector
         #0-4 : sum of scores
         score = float(score_list[i][0][0]) + float(score_list[i][0][1]) + \
                 float(score_list[i][0][2]) + float(score_list[i][0][3])
-        #score = int(score_list[i][0]) + int(score_list[i][1]) + int(score_list[i][2]) + int(score_list[i][3])
+        #update_console(gs.msg_console,"Score: "+str(score)+"\n")    
+        print("score: ", score)
+
         if (score < min_score):
             min_score = score
             nn_1 = float(score_list[i][0][0])*100
@@ -201,16 +206,21 @@ def optimization(score_list,iterations):
             nn_3 = round(nn_3,2)
             nn_4 = float(score_list[i][0][3])*100
             nn_4 = round(nn_4,2)
+            min_index = i
 
         i+=1
 
     #Output final results
-    print("Optimized score index:",i)
-    print("Parameters are: ",gs.AI_input_vector[i])
+    print("Optimized score index:",min_score)
+    print("Minimum score index:",min_index)
+    print("Parameters are: ",gs.AI_input_vector[min_index])
+    print("Minimum score:",score)
+
     #Update to AI output console
-    update_console(gs.ai_console_left,"Current = " + str(gs.AI_input_vector[i][1])+"\n")
-    update_console(gs.ai_console_middle,"Speed = " + str(gs.AI_input_vector[i][11])+"\n")
-    update_console(gs.ai_console_right,"Flow = " + str(gs.AI_input_vector[i][12])+"\n")
+    #Disable auto scroll
+    update_console(gs.ai_console_left,"Current = " + str(gs.AI_input_vector[min_index][1])+"\n",False)
+    update_console(gs.ai_console_middle,"Speed = " + str(gs.AI_input_vector[min_index][11])+"\n",False)
+    update_console(gs.ai_console_right,"Flow = " + str(gs.AI_input_vector[min_index][12])+"\n",False)
 
     #Update to message console
     update_console(gs.msg_console,"[AI] Here are the optimized parameters with given constraints \n") 

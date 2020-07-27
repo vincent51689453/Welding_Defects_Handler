@@ -4,6 +4,11 @@ import app_ai_core as AI
 
 
 def confirm_event():
+    #Clear all consoles
+    clear_console(gs.ai_console_left)
+    clear_console(gs.ai_console_middle)
+    clear_console(gs.ai_console_right)
+    clear_console(gs.msg_console)
     a,b,c = 0,0,0
     #When confirm button is pressed
     confirm_flag = True
