@@ -185,6 +185,7 @@ def optimization(score_list,iterations):
     min_score = 999.99
     min_index = 0
     nn_1,nn_2,nn_3,nn_4 = 0.0,0.0,0.0,0.0
+    error_1,error_2,error_3,error_4 = False,False,False,False
     update_console(gs.msg_console,"[AI] Total numbers of parameters: "+str(iterations)+"\n")
     update_console(gs.msg_console,"[AI] Starts optimizing parameters.. \n")
     while(i<(iterations-1)):
@@ -200,12 +201,16 @@ def optimization(score_list,iterations):
             min_score = score
             nn_1 = float(score_list[i][0][0])*100
             nn_1 = round(nn_1,2)
+            if(nn_1>60): error_1 = True
             nn_2 = float(score_list[i][0][1])*100
             nn_2 = round(nn_2,2)
+            if(nn_2>50): error_2 = True
             nn_3 = float(score_list[i][0][2])*100
             nn_3 = round(nn_3,2)
+            if(nn_3>65): error_3 = True
             nn_4 = float(score_list[i][0][3])*100
             nn_4 = round(nn_4,2)
+            if(nn_4>50): error_4 = True
             min_index = i
 
         i+=1
@@ -223,11 +228,38 @@ def optimization(score_list,iterations):
     update_console(gs.ai_console_right,"Flow = " + str(gs.AI_input_vector[min_index][12])+"\n",False)
 
     #Update to message console
-    update_console(gs.msg_console,"[AI] Here are the optimized parameters with given constraints \n") 
-    update_console(gs.msg_console,"[AI] WARNING: \n")
-    update_console(gs.msg_console,"[AI] Here is the risk evaluations: \n")
-    update_console(gs.msg_console,"[AI] Incomplete penetration -> " + str(nn_1) + "%\n")
-    update_console(gs.msg_console,"[AI] Incomplete fusion -> " + str(nn_2) + "%\n")
-    update_console(gs.msg_console,"[AI] Porosity -> " + str(nn_3) + "%\n")
-    update_console(gs.msg_console,"[AI] Underfill -> " + str(nn_4) + "%\n")
+    update_console(gs.msg_console,"******************************************************** \n") 
+    update_console(gs.msg_console,"[AI] Here are the optimized parameters... \n") 
+    update_console(gs.msg_console,"\n")
+    update_console(gs.msg_console,"[AI] Risk evaluations: \n")
+
+    message_penetration = "[AI] Incomplete penetration -> " + str(nn_1) + "%"
+    if(error_1 == True):
+        message_penetration += "  --- [FAILED]\n"
+    else:
+        message_penetration += "  --- [PASSED]\n" 
+
+    message_fusion = "[AI] Incomplete fusion -> " + str(nn_2) + "%"
+    if(error_2 == True):
+        message_fusion += " --- [FAILED]\n"
+    else:
+        message_fusion += " --- [PASSED]\n"
+
+    message_porosity = "[AI] Porosity -> " + str(nn_3) + "%"
+    if(error_3 == True):
+        message_porosity += " --- [FAILED]\n"
+    else:
+        message_porosity += " --- [PASSED]\n"   
+
+    message_underfill = "[AI] Underfill -> " + str(nn_4) + "%"
+    if(error_4 == True):
+        message_underfill += " --- [FAILED]\n"
+    else:
+        message_underfill += " --- [PASSED]\n"  
+
+    update_console(gs.msg_console,message_penetration)
+    update_console(gs.msg_console,message_fusion)
+    update_console(gs.msg_console,message_porosity)
+    update_console(gs.msg_console,message_underfill)
+    update_console(gs.msg_console,"******************************************************** \n") 
 
