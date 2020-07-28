@@ -127,7 +127,7 @@ def classification(ai_input,iterations):
         # standardizing the input feature
         nn_input = scale(nn_input)
         nn_input = np.array([nn_input])
-        classifier = keras.models.load_model('./ANN_200.h5')
+        classifier = keras.models.load_model('./ANN_v2_30000.h5')
         defects = classifier.predict(nn_input)
 
         defects_raw = defects

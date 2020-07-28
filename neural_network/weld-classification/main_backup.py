@@ -66,14 +66,14 @@ x_train = sc.fit_transform(x_train)
 classifier = tf.keras.Sequential()
 
 # First Hidden Layer -- with 4 nodes and 13 inputs -- activation function is Sigmoid
-classifier.add(Dense(20, activation='tanh', kernel_initializer='random_normal', input_dim=13))
+classifier.add(Dense(40, activation='sigmoid', kernel_initializer='random_normal', input_dim=13))
 # classifier.add(Dropout(0.2))
 # Second  Hidden Layer -- with 4 nodes -- activation function is Sigmoid too
-classifier.add(Dense(20, activation='tanh', kernel_initializer='random_normal'))
+classifier.add(Dense(40, activation='sigmoid', kernel_initializer='random_normal'))
 # classifier.add(Dropout(0.2))
 # classifier.add(Dense(20, activation='sigmoid', kernel_initializer='zeros'))
 # classifier.add(Dropout(0.2))
-classifier.add(Dense(6, activation='tanh', kernel_initializer='random_normal'))
+
 # Output Layer - 4 outputs
 classifier.add(Dense(4, activation='sigmoid', kernel_initializer='random_normal'))
 
@@ -81,22 +81,13 @@ classifier.add(Dense(4, activation='sigmoid', kernel_initializer='random_normal'
 # ADAM is used to optimize neural network
 # binary_crossentropy is used to calculate the loss function
 # accuracy is used to measure the performance of network
-
-initial_learning_rate = 0.001
-lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
-    initial_learning_rate,
-    decay_steps=500,
-    decay_rate=0.96,
-    staircase=True)
-
-
-sgd = optimizers.SGD(learning_rate=lr_schedule, momentum=0.9)
+sgd = optimizers.SGD(learning_rate=0.7, momentum=0.9)
 classifier.compile(optimizer='SGD', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Fitting the data to the training dataset
 # batch_size is how many samples we use to update the gradient
 # epochs are how many times we repeat the iterations
-history = classifier.fit(x_train, y_train, batch_size=289, validation_data=(x_test, y_test), epochs=30000)
+history = classifier.fit(x_train, y_train, batch_size=1, validation_data=(x_test, y_test), epochs=400)
 print("History keys are following: ")
 print(history.history.keys())
 
@@ -168,11 +159,11 @@ print("Time spent to execute this program is %s seconds" % (time.time() - start_
 # print("The train set is: ", sc.inverse_transform(x_test))
 
 #saved trained model
-classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_30000.h5')
+classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_300.h5')
 print("Model saved and exported!")
 
 #Reproduce the results
-classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_30000.h5')
+classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_300.h5')
 print(x_test)
 
 y_pred_new = classifier_new.predict(x_test)
