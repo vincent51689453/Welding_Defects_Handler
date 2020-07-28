@@ -105,7 +105,7 @@ def generate_input_vector(current,speed,flow_rate):
             #Step of current
             current += step_of_current
             #Reset
-            flow_rate = min_flow
+            speed = min_speed
 
         update_console(gs.msg_console,"[AI] Done!\n") 
         return output,counter  
@@ -127,7 +127,7 @@ def classification(ai_input,iterations):
         # standardizing the input feature
         nn_input = scale(nn_input)
         nn_input = np.array([nn_input])
-        classifier = keras.models.load_model('./ANN_v2_30000.h5')
+        classifier = keras.models.load_model('./ANN_200.h5')
         defects = classifier.predict(nn_input)
 
         defects_raw = defects
@@ -137,6 +137,10 @@ def classification(ai_input,iterations):
         
 
         #Display
+        input_message = "Input vector: " + str(nn_input) + "\n"
+        update_console(gs.msg_console,input_message)
+
+
         update_console(gs.msg_console,"[AI] Iteration #"+str(i)+":\n")
         print("Network Output: ",defects)
         raw_output_message = "[AI] Network Output:" + str(defects)+ "\n"
@@ -154,10 +158,8 @@ def classification(ai_input,iterations):
         #print("Thresholding: ",defects)
         print("<<------------------------------------------------------------>>")
         
-        thres_output_message = "Thresholding: " + str(defects) + "\n"
-        update_console(gs.msg_console,thres_output_message)
-
-        update_console(gs.msg_console,"------------------------------------\n")
+ 
+        update_console(gs.msg_console,"---------------------------------------------------------\n")
 
         progress_ratio = int(i/iterations*100)
 
@@ -194,6 +196,7 @@ def optimization(score_list,iterations):
         #0-4 : sum of scores
         score = float(score_list[i][0][0]) + float(score_list[i][0][1]) + \
                 float(score_list[i][0][2]) + float(score_list[i][0][3])
+
         #update_console(gs.msg_console,"Score: "+str(score)+"\n")    
         print("score: ", score)
 

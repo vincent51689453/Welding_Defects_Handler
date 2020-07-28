@@ -65,15 +65,15 @@ x_train = sc.fit_transform(x_train)
 # Building the neural network
 classifier = tf.keras.Sequential()
 
-# First Hidden Layer -- with 4 nodes and 13 inputs -- activation function is Sigmoid
-classifier.add(Dense(20, activation='tanh', kernel_initializer='random_normal', input_dim=13))
-# classifier.add(Dropout(0.2))
-# Second  Hidden Layer -- with 4 nodes -- activation function is Sigmoid too
-classifier.add(Dense(20, activation='tanh', kernel_initializer='random_normal'))
-# classifier.add(Dropout(0.2))
-# classifier.add(Dense(20, activation='sigmoid', kernel_initializer='zeros'))
-# classifier.add(Dropout(0.2))
-classifier.add(Dense(6, activation='tanh', kernel_initializer='random_normal'))
+# First Hidden Layer 
+classifier.add(Dense(13, activation='tanh', kernel_initializer='random_normal', input_dim=13))
+classifier.add(Dropout(0.15))
+
+# Second  Hidden Layer 
+classifier.add(Dense(13, activation='tanh', kernel_initializer='random_normal'))
+classifier.add(Dropout(0.15))
+
+
 # Output Layer - 4 outputs
 classifier.add(Dense(4, activation='sigmoid', kernel_initializer='random_normal'))
 
@@ -82,7 +82,7 @@ classifier.add(Dense(4, activation='sigmoid', kernel_initializer='random_normal'
 # binary_crossentropy is used to calculate the loss function
 # accuracy is used to measure the performance of network
 
-initial_learning_rate = 0.001
+initial_learning_rate = 0.01
 lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
     initial_learning_rate,
     decay_steps=500,
@@ -96,7 +96,9 @@ classifier.compile(optimizer='SGD', loss='binary_crossentropy', metrics=['accura
 # Fitting the data to the training dataset
 # batch_size is how many samples we use to update the gradient
 # epochs are how many times we repeat the iterations
-history = classifier.fit(x_train, y_train, batch_size=289, validation_data=(x_test, y_test), epochs=30000)
+#history = classifier.fit(x_train, y_train, batch_size=289, validation_data=(x_test, y_test), epochs=18000)
+
+history = classifier.fit(x_train, y_train, batch_size=289, validation_data=(x_test, y_test), epochs=1000000)
 print("History keys are following: ")
 print(history.history.keys())
 
@@ -168,11 +170,11 @@ print("Time spent to execute this program is %s seconds" % (time.time() - start_
 # print("The train set is: ", sc.inverse_transform(x_test))
 
 #saved trained model
-classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_30000.h5')
+classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_1.h5')
 print("Model saved and exported!")
 
 #Reproduce the results
-classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_30000.h5')
+classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_1.h5')
 print(x_test)
 
 y_pred_new = classifier_new.predict(x_test)
