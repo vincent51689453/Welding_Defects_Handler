@@ -20,7 +20,7 @@ This gui can help you to classify the welding defects by inputting three paramet
 ### B. Demo
 ![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/classifier_demo.gif)
 
-### C. Training MLP
+Training MLP
 -------------------------------------------
 If you want to configure your own MLP and even change the architecture of the network, you can edit *neural_network/welding_classification/main.py".*
 
