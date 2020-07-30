@@ -51,10 +51,10 @@ def classification():
     update_console(gs.msg_console,"---------------------------------------------------------\n")
 
     #update AI console
-    output_1 = round(float(defects[:,0]),2)*100
-    output_2 = round(float(defects[:,1]),2)*100
-    output_3 = round(float(defects[:,2]),2)*100
-    output_4 = round(float(defects[:,3]),2)*100
+    output_1 = round(float(defects[:,0])*100,2)
+    output_2 = round(float(defects[:,1])*100,2)
+    output_3 = round(float(defects[:,2])*100,2)
+    output_4 = round(float(defects[:,3])*100,2)
 
     ai_left_msg = "Incomplete penetration:  " + str(output_1) + "%"
     if(output_1 > 60):
