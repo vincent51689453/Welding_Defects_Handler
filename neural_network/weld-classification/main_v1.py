@@ -87,7 +87,11 @@ classifier.compile(optimizer='SGD', loss='binary_crossentropy', metrics=['accura
 # Fitting the data to the training dataset
 # batch_size is how many samples we use to update the gradient
 # epochs are how many times we repeat the iterations
-history = classifier.fit(x_train, y_train, batch_size=1, validation_data=(x_test, y_test), epochs=400)
+history = classifier.fit(x_train, y_train, batch_size=1, validation_data=(x_test, y_test), epochs=800)
+
+print(classifier.summary())
+
+
 print("History keys are following: ")
 print(history.history.keys())
 
@@ -159,13 +163,20 @@ print("Time spent to execute this program is %s seconds" % (time.time() - start_
 # print("The train set is: ", sc.inverse_transform(x_test))
 
 #saved trained model
-classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_300.h5')
+classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v1.h5')
 print("Model saved and exported!")
 
 #Reproduce the results
-classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_300.h5')
+classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v1.h5')
 print(x_test)
 
 y_pred_new = classifier_new.predict(x_test)
+
+print(y_pred_new)
+
+y_pred_new[:, 0] = (y_pred_new[:, 0] > 0.6)
+y_pred_new[:, 1] = (y_pred_new[:, 1] > 0.5)
+y_pred_new[:, 2] = (y_pred_new[:, 2] > 0.65)
+y_pred_new[:, 3] = (y_pred_new[:, 3] > 0.6)
 
 print(y_pred_new)

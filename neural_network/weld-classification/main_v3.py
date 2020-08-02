@@ -11,10 +11,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
 from tensorflow import keras
-from tensorflow.keras import Sequential  # there are two types of model in Keras: Sequential and Model
-from tensorflow.keras.layers import Dense, Dropout  # imported to build input, hidden and output layers
+from tensorflow.keras import Sequential,regularizers,Model
+from tensorflow.keras.layers import Input,Dense, Dropout, LeakyReLU, concatenate 
 from tensorflow.keras import optimizers
 from tensorflow import set_random_seed
+from tensorflow.keras.utils import plot_model
 from numpy.random import seed
 
 # np.seterr(divide='ignore', invalid='ignore')
@@ -39,19 +40,25 @@ trainset = pd.read_csv("/workspace/014-AI_Welding_CNERC/neural_network/input_dat
 # two lines above are used to plot the heatmap with correlations
 
 # creating input features and target variables
-# x = dataset.iloc[:, 0:13]  # input variables -- 13 inputs
+# x = dataset.iloc[:, 0:13]  # input variables -- 11 inputs
 # y = dataset.iloc[:, 13:17]  # target variables -- 4 outputs
-x_test = testset.iloc[:, 0:13]  # input variables -- 13 inputs
+x_test = testset.iloc[:, 0:11]  # input variables -- 11 inputs
+x_test_1 = testset.iloc[:, 11:13] # -- 2 inputs
+
 y_test = testset.iloc[:, 13:17]  # target variables -- 4 outputs
-x_train = trainset.iloc[:, 0:13]  # input variables -- 13 inputs
+
+x_train = trainset.iloc[:, 0:11]  # input variables -- 11 inputs
+x_train_1 = trainset.iloc[:, 11:13] # -- 2 inputs
+
 y_train = trainset.iloc[:, 13:17]  # target variables -- 4 outputs
 
 # standardizing the input feature -- imported StandardScaler for this purpose
 sc = StandardScaler()
 # x = sc.fit_transform(x)
 x_test = sc.fit_transform(x_test)
+x_test_1 = sc.fit_transform(x_test_1)
 x_train = sc.fit_transform(x_train)
-
+x_train_1 = sc.fit_transform(x_train_1)
 # pd.DataFrame(x_test).to_csv("C:\\Users\\nurizdau\\Desktop\\transformed_set.csv")
 
 # splitting the dataset into train and test -- train_test_split is imported for this purpose
@@ -63,42 +70,95 @@ x_train = sc.fit_transform(x_train)
 # print("test values are here: ", y_test)
 
 # Building the neural network
-classifier = tf.keras.Sequential()
+#---------------------------------------------------------------------------------------------
+# Sub-network 1 - Layer1 (for all currents)
+left_branch_input = Input(shape=(11,), name='Left_input')
+left_branch_output_1 = Dense(100)(left_branch_input)
+left_branch_output_2 = LeakyReLU(alpha=0.7)(left_branch_output_1)
+left_branch_output_3 = Dropout(0.4)(left_branch_output_2)
 
-# First Hidden Layer 
-classifier.add(Dense(13, activation='tanh', kernel_initializer='random_normal', input_dim=13))
-classifier.add(Dropout(0.15))
+# Sub-network 1 - Layer2
+left_branch_output_4 = Dense(100)(left_branch_output_3)
+left_branch_output_5 = LeakyReLU(alpha=0.7)(left_branch_output_4)
+left_branch_output_6 = Dropout(0.4)(left_branch_output_5)
 
-# Second  Hidden Layer 
-classifier.add(Dense(13, activation='tanh', kernel_initializer='random_normal'))
-classifier.add(Dropout(0.15))
+# Sub-network 1 - Layer3
+left_branch_output_7 = Dense(100)(left_branch_output_6)
+left_branch_output_8 = LeakyReLU(alpha=0.7)(left_branch_output_7)
+left_branch_output_9 = Dropout(0.4)(left_branch_output_8)
 
+# Sub-network 1 - Layer4
+left_branch_output_10 = Dense(100)(left_branch_output_9)
+left_branch_output_11 = LeakyReLU(alpha=0.7)(left_branch_output_10)
+left_branch_output_12 = Dropout(0.4)(left_branch_output_11)
 
-# Output Layer - 4 outputs
-classifier.add(Dense(4, activation='sigmoid', kernel_initializer='random_normal'))
+# Sub-network 1 - Layer5
+left_branch_output_13 = Dense(100)(left_branch_output_12)
+left_branch_output_14 = LeakyReLU(alpha=0.7)(left_branch_output_13)
+left_branch_output_15 = Dropout(0.4)(left_branch_output_14)
 
-# Compiling the neural network
-# ADAM is used to optimize neural network
-# binary_crossentropy is used to calculate the loss function
-# accuracy is used to measure the performance of network
+# Sub-network 1 - Layer6
+left_branch_output_16 = Dense(100)(left_branch_output_15)
+left_branch_output_17 = LeakyReLU(alpha=0.7)(left_branch_output_16)
+left_branch_output_18 = Dropout(0.4)(left_branch_output_17)
+
+# Sub-network 1 - Layer7
+left_branch_output_19 = Dense(100)(left_branch_output_18)
+left_branch_output_20 = LeakyReLU(alpha=0.7)(left_branch_output_19)
+left_branch_output_21 = Dropout(0.4)(left_branch_output_20)
+
+# Sub-network 1 - Layer8
+left_branch_output_22 = Dense(100)(left_branch_output_21)
+left_branch_output_23 = LeakyReLU(alpha=0.7)(left_branch_output_22)
+left_branch_output_24 = Dropout(0.4)(left_branch_output_23)
+
+# Sub-network 1 - Layer9
+left_branch_output_25 = Dense(100)(left_branch_output_24)
+left_branch_output_26 = LeakyReLU(alpha=0.7)(left_branch_output_25)
+left_branch_output_27 = Dropout(0.4)(left_branch_output_26)
+#---------------------------------------------------------------------------------------------
+# Sub-network 2 - Layer1 (for speed and gas flow)
+right_branch_input = Input(shape=(2,), name='Right_input')
+right_branch_output_1 = Dense(80,activation='tanh')(right_branch_input)
+#right_branch_output_2 = Dropout(0.4)(right_branch_output_1)
+
+# Sub-network 2 - Layer2
+right_branch_output_2 = Dense(80,activation='tanh')(right_branch_output_1)
+#right_branch_output_4 = Dropout(0.4)(right_branch_output_3)
+
+# Sub-network 2 - Layer3
+right_branch_output_3 = Dense(80,activation='tanh')(right_branch_output_2)
+
+# Sub-network 2 - Layer4
+right_branch_output_4 = Dense(80,activation='tanh')(right_branch_output_3)
+
+#---------------------------------------------------------------------------------------------
+# Combined network
+concat = concatenate([left_branch_output_27, right_branch_output_4], name='Concatenate')
+
+classifier_output = Dense(4, activation='sigmoid')(concat)
+#---------------------------------------------------------------------------------------------
+classifier = Model(inputs=[left_branch_input, right_branch_input], outputs=classifier_output,
+                    name='classifier_output')
+
 
 initial_learning_rate = 0.01
 lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
     initial_learning_rate,
-    decay_steps=500,
+    decay_steps=200,
     decay_rate=0.96,
     staircase=True)
 
 
 sgd = optimizers.SGD(learning_rate=lr_schedule, momentum=0.9)
-classifier.compile(optimizer='SGD', loss='binary_crossentropy', metrics=['accuracy'])
+#adam = optimizers.Adam(learning_rate=lr_schedule)
+classifier.compile(optimizer=sgd, loss='binary_crossentropy', metrics=['accuracy'])
 
 # Fitting the data to the training dataset
 # batch_size is how many samples we use to update the gradient
 # epochs are how many times we repeat the iterations
 #history = classifier.fit(x_train, y_train, batch_size=289, validation_data=(x_test, y_test), epochs=18000)
-
-history = classifier.fit(x_train, y_train, batch_size=289, validation_data=(x_test, y_test), epochs=1000000)
+history = classifier.fit([x_train,x_train_1], y_train, batch_size=64, validation_data=([x_test,x_test_1], y_test), epochs=1200)
 print("History keys are following: ")
 print(history.history.keys())
 
@@ -120,8 +180,9 @@ plt.xlabel('epoch')
 plt.legend(['loss', 'validation loss'], loc='upper left')
 plt.show()
 
+
 # evaluate the loss value and metrics values for the model
-eval_model = classifier.evaluate(x_train, y_train)
+eval_model = classifier.evaluate([x_train,x_train_1], y_train)
 print("Eval model is printed here: ", eval_model)
 
 
@@ -129,7 +190,7 @@ print("Eval model is printed here: ", eval_model)
 print("-----------------------------------------------")
 print(x_test)
 
-y_pred = classifier.predict(x_test)
+y_pred = classifier.predict([x_test,x_test_1])
 
 print(y_pred)
 print("-----------------------------------------------")
@@ -162,7 +223,7 @@ print("sensitivity for incompen is: ", (cm[0][0]/np.sum(cm[0]))*100)
 print("specificity for incompen is: ", (cm[1][1]/np.sum(cm[1]))*100)
 
 # or we can calculate it like this, but we won't be able to filter it by defect
-print("Model Accuracy is printed here: ", classifier.evaluate(x_test, y_test))
+print("Model Accuracy is printed here: ", classifier.evaluate([x_test,x_test_1], y_test))
 
 print("Time spent to execute this program is %s seconds" % (time.time() - start_time))
 
@@ -170,13 +231,25 @@ print("Time spent to execute this program is %s seconds" % (time.time() - start_
 # print("The train set is: ", sc.inverse_transform(x_test))
 
 #saved trained model
-classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_1.h5')
+classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v3.h5')
 print("Model saved and exported!")
 
 #Reproduce the results
-classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v2_1.h5')
+classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v3.h5')
 print(x_test)
 
-y_pred_new = classifier_new.predict(x_test)
+y_pred_new = classifier_new.predict([x_test,x_test_1])
 
 print(y_pred_new)
+
+y_pred_new[:, 0] = (y_pred_new[:, 0] > 0.6)
+y_pred_new[:, 1] = (y_pred_new[:, 1] > 0.5)
+y_pred_new[:, 2] = (y_pred_new[:, 2] > 0.65)
+y_pred_new[:, 3] = (y_pred_new[:, 3] > 0.6)
+
+print(y_pred_new)
+
+print(classifier.summary())
+
+plot_model(classifier, to_file='ANN_v3_Architecture.png', show_shapes=True, show_layer_names=True)
+print("saved!")

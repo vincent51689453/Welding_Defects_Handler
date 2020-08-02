@@ -127,7 +127,7 @@ def classification(ai_input,iterations):
         # standardizing the input feature
         nn_input = scale(nn_input)
         nn_input = np.array([nn_input])
-        classifier = keras.models.load_model('./ANN_200.h5')
+        classifier = keras.models.load_model('./ANN_v2.h5')
         defects = classifier.predict(nn_input)
 
         defects_raw = defects
@@ -141,9 +141,7 @@ def classification(ai_input,iterations):
 
         input_message = "Input vector: " + str(nn_input) + "\n"
         update_console(gs.msg_console,input_message)
-
-
-
+        
         print("Network Output: ",defects)
         raw_output_message = "[AI] Network Output:" + str(defects)+ "\n"
         update_console(gs.msg_console,raw_output_message)
