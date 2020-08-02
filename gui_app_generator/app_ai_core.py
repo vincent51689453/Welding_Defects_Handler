@@ -137,11 +137,13 @@ def classification(ai_input,iterations):
         
 
         #Display
+        update_console(gs.msg_console,"[AI] Iteration #"+str(i)+":\n")
+
         input_message = "Input vector: " + str(nn_input) + "\n"
         update_console(gs.msg_console,input_message)
 
 
-        update_console(gs.msg_console,"[AI] Iteration #"+str(i)+":\n")
+
         print("Network Output: ",defects)
         raw_output_message = "[AI] Network Output:" + str(defects)+ "\n"
         update_console(gs.msg_console,raw_output_message)
