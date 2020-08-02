@@ -26,6 +26,15 @@ If you want to configure your own MLP and even change the architecture of the ne
 
 Afterward, you can run **python3 main.py**.
 
+### A. ANN_V1
+![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/ANN_V1/ANN_v1_Architecture.png)
+
+### B. ANN_V2
+![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/ANN_V2/ANN_Architecture_85.png)
+
+
+### B. ANN_V3
+![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/ANN_V3/ANN_v3_Architecture.png)
 
 
 Docker Hub 
