@@ -33,7 +33,7 @@ Afterward, you can run **python3 main.py**.
 ![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/ANN_V2/ANN_Architecture_85.png)
 
 
-### B. ANN_V3
+### C. ANN_V3
 ![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/ANN_V3/ANN_v3_Architecture.png)
 
 
