@@ -361,19 +361,19 @@ def filler_wire_init(gui_window):
         bg=app_info.base_material_bg,fg=app_info.base_material_material_text_color)
     fillerwire_diameter_label.place(x=app_info.fillerwire_diameter_x,y=app_info.fillerwire_diameter_y)    
 
+
+def protective_gas_init(gui_window):
+    #Set "protective gas" input label
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    base_joint_label = tk.Label(gui_window, text=app_info.fillerwire_gas_header, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.fillerwire_text_color)
+    base_joint_label.place(x=app_info.fillerwire_gas_x,y=app_info.fillerwire_gas_y)  
+
     #Set "protective gas" input box
     joint_type_entry = tk.Entry(gui_window, width=app_info.fillerwire_gas_box_w,\
         bg=app_info.joint_type_box_bg,fg=app_info.joint_type_box_fg)
     joint_type_entry.place(x=app_info.fillerwire_gas_box_x,y=app_info.fillerwire_gas_box_y)   
     joint_type_entry.insert(0,app_info.fillerwire_gas_content)
-
-    #Set "protective gas" input label
-    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
-    base_joint_label = tk.Label(gui_window, text=app_info.fillerwire_gas_header, font=fontStyle,\
-        bg=app_info.base_material_bg,fg=app_info.base_material_material_text_color)
-    base_joint_label.place(x=app_info.fillerwire_gas_x,y=app_info.fillerwire_gas_y)  
-
-
 
 def main_window_init():
     window = tk.Tk()
@@ -422,6 +422,7 @@ def main():
     #Setup different interfaces on config canvas
     base_metal_material_init(gs.config_area)
     filler_wire_init(gs.config_area)
+    protective_gas_init(gs.config_area)
 
     #Setup canvas for message zone
     gs.message_area = tk.Canvas(gs.main_window,width=app_info.msg_canvas_w, height=app_info.msg_canvas_h,\

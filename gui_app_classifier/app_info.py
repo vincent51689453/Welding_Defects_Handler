@@ -389,13 +389,13 @@ base_material_y = 60
 base_material_bg = '#292929'
 base_material_material_text_color = 'white'
 base_material_box_w = 6
-base_material_box_x = base_material_x+110
+base_material_box_x = base_material_x+120
 base_material_box_y = base_material_y
 base_material_box_bg = base_material_bg
 base_material_box_fg = 'white'
 
 #Thickness information(x,y based on canvas)
-base_thickness_x = 200
+base_thickness_x = 210
 base_thickness_y = 60
 base_thickness_bg = '#292929'
 base_thickness_text_color = 'white'
@@ -411,7 +411,7 @@ joint_type_y = 90
 joint_type_bg = '#292929'
 joint_type_text_color = 'white'
 joint_type_box_w = 28
-joint_type_box_x = joint_type_x+110
+joint_type_box_x = joint_type_x+120
 joint_type_box_y = joint_type_y
 joint_type_box_bg = base_material_bg
 joint_type_box_fg = 'white'
@@ -430,7 +430,7 @@ fillerwire_text_color = 'lawn green'
 
 fillerwire_header = '-> Material:'
 fillerwire_diameter_header = '-> Diameter:'
-fillerwire_gas_header = '-> Protective Gas:'
+fillerwire_gas_header = 'Protective Gas:'
 
 fillerwire_fontstyle = base_material_style_2
 fillerwire_size = 11
@@ -445,13 +445,13 @@ fillerwire_material_y = 135
 fillerwire_bg = '#292929'
 fillerwire_material_text_color = 'white'
 fillerwire_material_box_w = 6
-fillerwire_material_box_x = fillerwire_material_x+110
+fillerwire_material_box_x = fillerwire_material_x+120
 fillerwire_material_box_y = fillerwire_material_y
 fillerwire_material_box_bg = base_material_bg
 fillerwire_material_box_fg = 'white'
 
 #Diameter information(x,y based on canvas)
-fillerwire_diameter_x = 200
+fillerwire_diameter_x = 210
 fillerwire_diameter_y = 135
 fillerwire_diameter_bg = '#292929'
 fillerwire_diameter_text_color = 'white'
@@ -461,13 +461,13 @@ fillerwire_diameter_box_y = fillerwire_diameter_y
 fillerwire_diameter_box_bg = base_material_bg
 fillerwire_diameter_box_fg = 'white'
 
-#Joint_Type information(x,y based on canvas)
-fillerwire_gas_x = 25
+#Protective gas information(x,y based on canvas)
+fillerwire_gas_x = 20
 fillerwire_gas_y = 165
 fillerwire_gas_bg = '#292929'
 fillerwire_gas_text_color = 'white'
 fillerwire_gas_box_w = 23
-fillerwire_gas_box_x = fillerwire_gas_x+150
+fillerwire_gas_box_x = fillerwire_gas_x+125
 fillerwire_gas_box_y = fillerwire_gas_y
 fillerwire_gas_box_bg = base_material_bg
 fillerwire_gas_box_fg = 'white'
