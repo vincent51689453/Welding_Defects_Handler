@@ -34,7 +34,7 @@ input_canvas_highlight = 0
 input_canvas_x = 20
 input_canvas_y = 60
 
-input_zone_label = "Manual Input"
+input_zone_label = "Weld Parameter Input"
 input_label_x = 20
 input_label_y = 10
 input_label_text_color = 'yellow'
