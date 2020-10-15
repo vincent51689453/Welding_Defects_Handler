@@ -27,7 +27,7 @@ app_header_text_color = 'white'
 #input boundary box canvas
 #--------------------------------------------------------------------
 input_canvas_w = 310
-input_canvas_h = 180
+input_canvas_h = 195
 input_canvas_color = '#292929'
 input_canvas_thick = 0
 input_canvas_highlight = 0
@@ -338,7 +338,7 @@ text_ai_box_y_x = 115
 #configuration boundary box canvas
 #--------------------------------------------------------------------
 config_canvas_w = 440
-config_canvas_h = 180
+config_canvas_h = 195
 config_canvas_color = '#292929'
 config_canvas_thick = 0
 config_canvas_highlight = 0
@@ -410,12 +410,71 @@ joint_type_x = 25
 joint_type_y = 90
 joint_type_bg = '#292929'
 joint_type_text_color = 'white'
-joint_type_box_w = 25
+joint_type_box_w = 28
 joint_type_box_x = joint_type_x+110
 joint_type_box_y = joint_type_y
 joint_type_box_bg = base_material_bg
 joint_type_box_fg = 'white'
 #--------------------------------------------------------------------
+
+#Configuration input: fillerwire
+#--------------------------------------------------------------------
+fillerwire_style_1 = "Lucida Grande"
+fillerwire_style_2 = "DejaVu Serif"
+
+fillerwire_label = "Fillerwire:"
+#based on configuration canvas
+fillerwire_label_x = 20
+fillerwire_label_y = 115
+fillerwire_text_color = 'lawn green'
+
+fillerwire_header = '-> Material:'
+fillerwire_diameter_header = '-> Diameter:'
+fillerwire_gas_header = '-> Protective Gas:'
+
+fillerwire_fontstyle = base_material_style_2
+fillerwire_size = 11
+
+fillerwire_material_content = "Steel"
+fillerwire_diameter_content = "1.2mm"
+fillerwire_gas_content = "MIGSHIELD"
+
+#Metal information(x,y based on canvas)
+fillerwire_material_x = 25
+fillerwire_material_y = 135
+fillerwire_bg = '#292929'
+fillerwire_material_text_color = 'white'
+fillerwire_material_box_w = 6
+fillerwire_material_box_x = fillerwire_material_x+110
+fillerwire_material_box_y = fillerwire_material_y
+fillerwire_material_box_bg = base_material_bg
+fillerwire_material_box_fg = 'white'
+
+#Diameter information(x,y based on canvas)
+fillerwire_diameter_x = 200
+fillerwire_diameter_y = 135
+fillerwire_diameter_bg = '#292929'
+fillerwire_diameter_text_color = 'white'
+fillerwire_diameter_box_w = 6
+fillerwire_diameter_box_x = fillerwire_diameter_x+110
+fillerwire_diameter_box_y = fillerwire_diameter_y
+fillerwire_diameter_box_bg = base_material_bg
+fillerwire_diameter_box_fg = 'white'
+
+#Joint_Type information(x,y based on canvas)
+fillerwire_gas_x = 25
+fillerwire_gas_y = 165
+fillerwire_gas_bg = '#292929'
+fillerwire_gas_text_color = 'white'
+fillerwire_gas_box_w = 23
+fillerwire_gas_box_x = fillerwire_gas_x+150
+fillerwire_gas_box_y = fillerwire_gas_y
+fillerwire_gas_box_bg = base_material_bg
+fillerwire_gas_box_fg = 'white'
+#--------------------------------------------------------------------
+
+
+
 
 """
 TKinter design reference
