@@ -381,7 +381,7 @@ base_material_size = 11
 
 base_material_material_content = "Steel"
 base_material_thickness_content = "6mm"
-base_material_joint_content = "Square Groore Butt Joint"
+base_material_joint_content = "Square Groove Butt Joint"
 
 #Metal information(x,y based on canvas)
 base_material_x = 25
