@@ -26,7 +26,7 @@ app_header_text_color = 'white'
 
 #input boundary box canvas
 #--------------------------------------------------------------------
-input_canvas_w = 305
+input_canvas_w = 310
 input_canvas_h = 180
 input_canvas_color = '#292929'
 input_canvas_thick = 0
@@ -34,7 +34,7 @@ input_canvas_highlight = 0
 input_canvas_x = 20
 input_canvas_y = 60
 
-input_zone_label = "Manual Input"
+input_zone_label = "Weld Parameter Input"
 input_label_x = 20
 input_label_y = 10
 input_label_text_color = 'yellow'
@@ -117,12 +117,12 @@ app_input3_box_fg = 'white'
 #message boundary box canvas
 #--------------------------------------------------------------------
 msg_canvas_w = 440
-msg_canvas_h = 460
+msg_canvas_h = 260
 msg_canvas_color = '#292929'
 msg_canvas_thick = 0
 msg_canvas_highlight = 0
 msg_canvas_x = 340
-msg_canvas_y = 60
+msg_canvas_y = 260
 
 msg_zone_label = "AI System Console"
 #based on message canvas
@@ -143,7 +143,7 @@ line4_msg_xmin, line4_msg_xmax, line4_msg_ymin, line4_msg_ymax = 0,msg_canvas_w-
 
 #control boundary box canvas
 #--------------------------------------------------------------------
-crtl_canvas_w = 305
+crtl_canvas_w = 310
 crtl_canvas_h = 260
 crtl_canvas_color = '#292929'
 crtl_canvas_thick = 0
@@ -269,8 +269,8 @@ app_console_fontstyle = "DejaVu Serif"
 app_console_fontsize = 10
 app_console_background = 'black'
 app_console_foreground = 'white'
-text_box_w = 49
-text_box_h = 24
+text_box_w = 48
+text_box_h = 12
 text_box_x = 20
 text_box_y = 40
 #--------------------------------------------------------------------
@@ -333,6 +333,32 @@ text_ai_box_h_x = 1
 text_ai_box_x_x = 130
 text_ai_box_y_x = 115
 
+#--------------------------------------------------------------------
+
+#configuration boundary box canvas
+#--------------------------------------------------------------------
+config_canvas_w = 440
+config_canvas_h = 180
+config_canvas_color = '#292929'
+config_canvas_thick = 0
+config_canvas_highlight = 0
+config_canvas_x = 340
+config_canvas_y = 60
+
+config_zone_label = "Configuration"
+#based on configuration canvas
+config_label_x = 20
+config_label_y = 10
+config_label_text_color = 'yellow'
+
+#Left
+line1_config_xmin, line1_config_xmax, line1_config_ymin, line1_config_ymax = 0,0,0,config_canvas_h-1
+#Right
+line2_config_xmin, line2_config_xmax, line2_config_ymin, line2_config_ymax = config_canvas_w-1,config_canvas_w-1,0,config_canvas_h-1
+#Top
+line3_config_xmin, line3_config_xmax, line3_config_ymin, line3_config_ymax = 0,config_canvas_w-1,0,0
+#Bottom
+line4_config_xmin, line4_config_xmax, line4_config_ymin, line4_config_ymax = 0,config_canvas_w-1,config_canvas_h-1,config_canvas_h-1
 #--------------------------------------------------------------------
 """
 TKinter design reference

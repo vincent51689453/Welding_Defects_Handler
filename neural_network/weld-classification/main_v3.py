@@ -29,8 +29,8 @@ start_time = time.time()
 
 # dataset = pd.read_csv("C:\\Users\\nurizdau\\Desktop\\[DATASET]\\results_for_training_final.csv", error_bad_lines=False, header=None)
 # /workspace/014-AI_Welding_CNERC/neural_network/input_data
-testset = pd.read_csv("/workspace/014-AI_Welding_CNERC/neural_network/input_data/11_results_final_testing_set_general.csv", error_bad_lines=False, header=None)
-trainset = pd.read_csv("/workspace/014-AI_Welding_CNERC/neural_network/input_data/11_results_final_training_set_general.csv", error_bad_lines=False, header=None)
+testset = pd.read_csv("/workspace/Welding_Defects_Handler/neural_network/input_data/11_results_final_testing_set_general.csv", error_bad_lines=False, header=None)
+trainset = pd.read_csv("/workspace/Welding_Defects_Handler/neural_network/input_data/11_results_final_training_set_general.csv", error_bad_lines=False, header=None)
 
 # print(dataset.describe(include="all"))
 # line above prints out the data about dataset
@@ -204,8 +204,8 @@ y_pred[:, 2] = (y_pred[:, 2] > 0.65)
 y_pred[:, 3] = (y_pred[:, 3] > 0.6)
 # y_pred[:, 4] = (y_pred[:, 4] > 0.5)
 
-pd.DataFrame(y_pred).to_csv("/workspace/014-AI_Welding_CNERC/neural_network/output_data/predicted_results.csv")
-pd.DataFrame(y_test.values).to_csv("/workspace/014-AI_Welding_CNERC/neural_network/output_data/testing_results.csv")
+pd.DataFrame(y_pred).to_csv("/workspace/Welding_Defects_Handler/neural_network/output_data/predicted_results.csv")
+pd.DataFrame(y_test.values).to_csv("/workspace/Welding_Defects_Handler/neural_network/output_data/testing_results.csv")
 
 # check the accuracy on the dataset -- confusion_matrix is used for this purpose
 
@@ -231,11 +231,12 @@ print("Time spent to execute this program is %s seconds" % (time.time() - start_
 # print("The train set is: ", sc.inverse_transform(x_test))
 
 #saved trained model
-classifier.save('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v3.h5')
+classifier.save('/workspace/Welding_Defects_Handler/neural_network/ANN_v3.h5')
 print("Model saved and exported!")
 
+"""
 #Reproduce the results
-classifier_new = keras.models.load_model('/workspace/014-AI_Welding_CNERC/neural_network/output_data/ANN_v3.h5')
+classifier_new = keras.models.load_model('/workspace/Welding_Defects_Handler/neural_network/output_data/ANN_v3.h5')
 print(x_test)
 
 y_pred_new = classifier_new.predict([x_test,x_test_1])
@@ -253,3 +254,4 @@ print(classifier.summary())
 
 plot_model(classifier, to_file='ANN_v3_Architecture.png', show_shapes=True, show_layer_names=True)
 print("saved!")
+"""

@@ -227,6 +227,20 @@ def draw_output_boundary(gui_window):
         bg=app_info.app_input1_bg,fg=app_info.out_label_text_color)
     zone_label.place(x=app_info.out_label_x,y=app_info.out_label_y)       
 
+def draw_config_boundary(gui_window):
+    gui_window.create_line(app_info.line1_config_xmin,app_info.line1_config_ymin,\
+        app_info.line1_config_xmax,app_info.line1_config_ymax,fill='white')       
+    gui_window.create_line(app_info.line2_config_xmin,app_info.line2_out_ymin,\
+        app_info.line2_config_xmax,app_info.line2_config_ymax,fill='white')
+    gui_window.create_line(app_info.line3_config_xmin,app_info.line3_config_ymin,\
+        app_info.line3_config_xmax,app_info.line3_config_ymax,fill='white')
+    gui_window.create_line(app_info.line4_config_xmin,app_info.line4_config_ymin,\
+        app_info.line4_config_xmax,app_info.line4_config_ymax,fill='white')
+
+    fontStyle = tkFont.Font(family=app_info.app_input1_fontstyle, size=app_info.app_input1_size)
+    zone_label = tk.Label(gui_window, text=app_info.config_zone_label, font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.config_label_text_color)
+    zone_label.place(x=app_info.config_label_x,y=app_info.config_label_y)     
 
 def input_current_init(gui_window):
     #input parameter 1 = input current
@@ -307,6 +321,14 @@ def main():
 
     #Draw input boundary boxes
     draw_input_bondary(gs.input_area)
+
+    #Setup canvas for configuration zone
+    gs.config_area = tk.Canvas(gs.main_window, width=app_info.config_canvas_w, height=app_info.config_canvas_h,\
+        bg = app_info.config_canvas_color, bd = app_info.config_canvas_thick, highlightthickness=app_info.config_canvas_highlight)
+    gs.config_area.place(x=app_info.config_canvas_x,y=app_info.config_canvas_y)    
+
+    #Draw config boundary boxes
+    draw_config_boundary(gs.config_area)
 
     #Setup canvas for message zone
     gs.message_area = tk.Canvas(gs.main_window,width=app_info.msg_canvas_w, height=app_info.msg_canvas_h,\
