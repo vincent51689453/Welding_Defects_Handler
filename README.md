@@ -8,7 +8,7 @@ This gui can help you to generate the remaining two welding parameters using dee
 ![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/basic_generator_layout_2.png)
 
 ### B. Demo
-![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/generator_demo.gif)
+![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/generator_demo_2.gif)
 
 AI based welding parameters classifier
 -------------------------------------------
@@ -18,7 +18,7 @@ This gui can help you to classify the welding defects by inputting three paramet
 ![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/basic_classifier_layout_2.png)
 
 ### B. Demo
-![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/classifier_demo.gif)
+![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/classifier_demo_2.gif)
 
 Training MLP
 -------------------------------------------
