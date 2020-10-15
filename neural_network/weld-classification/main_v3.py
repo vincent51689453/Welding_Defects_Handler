@@ -231,7 +231,7 @@ print("Time spent to execute this program is %s seconds" % (time.time() - start_
 # print("The train set is: ", sc.inverse_transform(x_test))
 
 #saved trained model
-classifier.save('/workspace/Welding_Defects_Handler/neural_network/ANN_v3.h5')
+#classifier.save('/workspace/Welding_Defects_Handler/neural_network/ANN_v3.h5')
 print("Model saved and exported!")
 
 """

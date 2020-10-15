@@ -360,6 +360,63 @@ line3_config_xmin, line3_config_xmax, line3_config_ymin, line3_config_ymax = 0,c
 #Bottom
 line4_config_xmin, line4_config_xmax, line4_config_ymin, line4_config_ymax = 0,config_canvas_w-1,config_canvas_h-1,config_canvas_h-1
 #--------------------------------------------------------------------
+
+#Configuration input: base metal
+#--------------------------------------------------------------------
+base_material_style_1 = "Lucida Grande"
+base_material_style_2 = "DejaVu Serif"
+
+base_material_label = "Base Metal:"
+#based on configuration canvas
+base_material_label_x = 20
+base_material_label_y = 35
+base_material_text_color = 'lawn green'
+
+base_material_header = '-> Material:'
+base_material_thickness_header = '-> Thickness:'
+base_material_joint_header = '-> Joint Type:'
+
+base_material_fontstyle = base_material_style_2
+base_material_size = 11
+
+base_material_material_content = "Steel"
+base_material_thickness_content = "6mm"
+base_material_joint_content = "Square Groore Butt Joint"
+
+#Metal information(x,y based on canvas)
+base_material_x = 25
+base_material_y = 60
+base_material_bg = '#292929'
+base_material_material_text_color = 'white'
+base_material_box_w = 6
+base_material_box_x = base_material_x+110
+base_material_box_y = base_material_y
+base_material_box_bg = base_material_bg
+base_material_box_fg = 'white'
+
+#Thickness information(x,y based on canvas)
+base_thickness_x = 200
+base_thickness_y = 60
+base_thickness_bg = '#292929'
+base_thickness_text_color = 'white'
+base_thickness_box_w = 6
+base_thickness_box_x = base_thickness_x+110
+base_thickness_box_y = base_thickness_y
+base_thickness_box_bg = base_material_bg
+base_thickness_box_fg = 'white'
+
+#Joint_Type information(x,y based on canvas)
+joint_type_x = 25
+joint_type_y = 90
+joint_type_bg = '#292929'
+joint_type_text_color = 'white'
+joint_type_box_w = 25
+joint_type_box_x = joint_type_x+110
+joint_type_box_y = joint_type_y
+joint_type_box_bg = base_material_bg
+joint_type_box_fg = 'white'
+#--------------------------------------------------------------------
+
 """
 TKinter design reference
 1. http://www.science.smith.edu/dftwiki/index.php/Color_Charts_for_TKinter
