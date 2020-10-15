@@ -473,9 +473,6 @@ fillerwire_gas_box_bg = base_material_bg
 fillerwire_gas_box_fg = 'white'
 #--------------------------------------------------------------------
 
-
-
-
 """
 TKinter design reference
 1. http://www.science.smith.edu/dftwiki/index.php/Color_Charts_for_TKinter

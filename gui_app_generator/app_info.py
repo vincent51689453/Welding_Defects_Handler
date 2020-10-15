@@ -26,8 +26,8 @@ app_header_text_color = 'white'
 
 #input boundary box canvas
 #--------------------------------------------------------------------
-input_canvas_w = 305
-input_canvas_h = 180
+input_canvas_w = 310
+input_canvas_h = 195
 input_canvas_color = '#292929'
 input_canvas_thick = 0
 input_canvas_highlight = 0
@@ -117,12 +117,12 @@ app_input3_box_fg = 'white'
 #message boundary box canvas
 #--------------------------------------------------------------------
 msg_canvas_w = 440
-msg_canvas_h = 460
+msg_canvas_h = 260
 msg_canvas_color = '#292929'
 msg_canvas_thick = 0
 msg_canvas_highlight = 0
 msg_canvas_x = 340
-msg_canvas_y = 60
+msg_canvas_y = 260
 
 msg_zone_label = "AI System Console"
 #based on message canvas
@@ -143,7 +143,7 @@ line4_msg_xmin, line4_msg_xmax, line4_msg_ymin, line4_msg_ymax = 0,msg_canvas_w-
 
 #control boundary box canvas
 #--------------------------------------------------------------------
-crtl_canvas_w = 305
+crtl_canvas_w = 310
 crtl_canvas_h = 260
 crtl_canvas_color = '#292929'
 crtl_canvas_thick = 0
@@ -269,8 +269,8 @@ app_console_fontstyle = "DejaVu Serif"
 app_console_fontsize = 10
 app_console_background = 'black'
 app_console_foreground = 'white'
-text_box_w = 49
-text_box_h = 24
+text_box_w = 48
+text_box_h = 12
 text_box_x = 20
 text_box_y = 40
 #--------------------------------------------------------------------
@@ -323,6 +323,145 @@ text_ai_box_x_r = 550
 text_ai_box_y_r = 10
 
 #--------------------------------------------------------------------
+
+#configuration boundary box canvas
+#--------------------------------------------------------------------
+config_canvas_w = 440
+config_canvas_h = 195
+config_canvas_color = '#292929'
+config_canvas_thick = 0
+config_canvas_highlight = 0
+config_canvas_x = 340
+config_canvas_y = 60
+
+config_zone_label = "Configuration"
+#based on configuration canvas
+config_label_x = 20
+config_label_y = 10
+config_label_text_color = 'yellow'
+
+#Left
+line1_config_xmin, line1_config_xmax, line1_config_ymin, line1_config_ymax = 0,0,0,config_canvas_h-1
+#Right
+line2_config_xmin, line2_config_xmax, line2_config_ymin, line2_config_ymax = config_canvas_w-1,config_canvas_w-1,0,config_canvas_h-1
+#Top
+line3_config_xmin, line3_config_xmax, line3_config_ymin, line3_config_ymax = 0,config_canvas_w-1,0,0
+#Bottom
+line4_config_xmin, line4_config_xmax, line4_config_ymin, line4_config_ymax = 0,config_canvas_w-1,config_canvas_h-1,config_canvas_h-1
+#--------------------------------------------------------------------
+
+#Configuration input: base metal
+#--------------------------------------------------------------------
+base_material_style_1 = "Lucida Grande"
+base_material_style_2 = "DejaVu Serif"
+
+base_material_label = "Base Metal:"
+#based on configuration canvas
+base_material_label_x = 20
+base_material_label_y = 35
+base_material_text_color = 'lawn green'
+
+base_material_header = '-> Material:'
+base_material_thickness_header = '-> Thickness:'
+base_material_joint_header = '-> Joint Type:'
+
+base_material_fontstyle = base_material_style_2
+base_material_size = 11
+
+base_material_material_content = "Steel"
+base_material_thickness_content = "6mm"
+base_material_joint_content = "Square Groore Butt Joint"
+
+#Metal information(x,y based on canvas)
+base_material_x = 25
+base_material_y = 60
+base_material_bg = '#292929'
+base_material_material_text_color = 'white'
+base_material_box_w = 6
+base_material_box_x = base_material_x+120
+base_material_box_y = base_material_y
+base_material_box_bg = base_material_bg
+base_material_box_fg = 'white'
+
+#Thickness information(x,y based on canvas)
+base_thickness_x = 210
+base_thickness_y = 60
+base_thickness_bg = '#292929'
+base_thickness_text_color = 'white'
+base_thickness_box_w = 6
+base_thickness_box_x = base_thickness_x+110
+base_thickness_box_y = base_thickness_y
+base_thickness_box_bg = base_material_bg
+base_thickness_box_fg = 'white'
+
+#Joint_Type information(x,y based on canvas)
+joint_type_x = 25
+joint_type_y = 90
+joint_type_bg = '#292929'
+joint_type_text_color = 'white'
+joint_type_box_w = 28
+joint_type_box_x = joint_type_x+120
+joint_type_box_y = joint_type_y
+joint_type_box_bg = base_material_bg
+joint_type_box_fg = 'white'
+#--------------------------------------------------------------------
+
+#Configuration input: fillerwire
+#--------------------------------------------------------------------
+fillerwire_style_1 = "Lucida Grande"
+fillerwire_style_2 = "DejaVu Serif"
+
+fillerwire_label = "Fillerwire:"
+#based on configuration canvas
+fillerwire_label_x = 20
+fillerwire_label_y = 115
+fillerwire_text_color = 'lawn green'
+
+fillerwire_header = '-> Material:'
+fillerwire_diameter_header = '-> Diameter:'
+fillerwire_gas_header = 'Protective Gas:'
+
+fillerwire_fontstyle = base_material_style_2
+fillerwire_size = 11
+
+fillerwire_material_content = "Steel"
+fillerwire_diameter_content = "1.2mm"
+fillerwire_gas_content = "MIGSHIELD"
+
+#Metal information(x,y based on canvas)
+fillerwire_material_x = 25
+fillerwire_material_y = 135
+fillerwire_bg = '#292929'
+fillerwire_material_text_color = 'white'
+fillerwire_material_box_w = 6
+fillerwire_material_box_x = fillerwire_material_x+120
+fillerwire_material_box_y = fillerwire_material_y
+fillerwire_material_box_bg = base_material_bg
+fillerwire_material_box_fg = 'white'
+
+#Diameter information(x,y based on canvas)
+fillerwire_diameter_x = 210
+fillerwire_diameter_y = 135
+fillerwire_diameter_bg = '#292929'
+fillerwire_diameter_text_color = 'white'
+fillerwire_diameter_box_w = 6
+fillerwire_diameter_box_x = fillerwire_diameter_x+110
+fillerwire_diameter_box_y = fillerwire_diameter_y
+fillerwire_diameter_box_bg = base_material_bg
+fillerwire_diameter_box_fg = 'white'
+
+#Protective gas information(x,y based on canvas)
+fillerwire_gas_x = 20
+fillerwire_gas_y = 165
+fillerwire_gas_bg = '#292929'
+fillerwire_gas_text_color = 'white'
+fillerwire_gas_box_w = 23
+fillerwire_gas_box_x = fillerwire_gas_x+125
+fillerwire_gas_box_y = fillerwire_gas_y
+fillerwire_gas_box_bg = base_material_bg
+fillerwire_gas_box_fg = 'white'
+#--------------------------------------------------------------------
+
 """
 TKinter design reference
 1. http://www.science.smith.edu/dftwiki/index.php/Color_Charts_for_TKinter

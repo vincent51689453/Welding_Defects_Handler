@@ -218,6 +218,20 @@ def draw_output_boundary(gui_window):
         bg=app_info.app_input1_bg,fg=app_info.out_label_text_color)
     zone_label.place(x=app_info.out_label_x,y=app_info.out_label_y)       
 
+def draw_config_boundary(gui_window):
+    gui_window.create_line(app_info.line1_config_xmin,app_info.line1_config_ymin,\
+        app_info.line1_config_xmax,app_info.line1_config_ymax,fill='white')       
+    gui_window.create_line(app_info.line2_config_xmin,app_info.line2_out_ymin,\
+        app_info.line2_config_xmax,app_info.line2_config_ymax,fill='white')
+    gui_window.create_line(app_info.line3_config_xmin,app_info.line3_config_ymin,\
+        app_info.line3_config_xmax,app_info.line3_config_ymax,fill='white')
+    gui_window.create_line(app_info.line4_config_xmin,app_info.line4_config_ymin,\
+        app_info.line4_config_xmax,app_info.line4_config_ymax,fill='white')
+
+    fontStyle = tkFont.Font(family=app_info.app_input1_fontstyle, size=app_info.app_input1_size)
+    zone_label = tk.Label(gui_window, text=app_info.config_zone_label, font=fontStyle,\
+        bg=app_info.app_input1_bg,fg=app_info.config_label_text_color)
+    zone_label.place(x=app_info.config_label_x,y=app_info.config_label_y)
 
 def input_current_init(gui_window):
     #input parameter 1 = input current
@@ -262,6 +276,95 @@ def flow_rate_init(gui_window):
 
     return flow_rate_label,flow_rate_entry 
 
+def base_metal_material_init(gui_window):
+    #Material details for base metal
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    base_material_sublabel = tk.Label(gui_window, text=app_info.base_material_label, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.base_material_text_color)
+    base_material_sublabel.place(x=app_info.base_material_label_x,y=app_info.base_material_label_y)
+
+    #Set "material" input label
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    base_material_label = tk.Label(gui_window, text=app_info.base_material_header, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.base_material_material_text_color)
+    base_material_label.place(x=app_info.base_material_x,y=app_info.base_material_y)
+
+    #Set "material" input box
+    base_material_entry = tk.Entry(gui_window, width=app_info.base_material_box_w,\
+        bg=app_info.base_material_box_bg,fg=app_info.base_material_box_fg)
+    base_material_entry.place(x=app_info.base_material_box_x,y=app_info.base_material_box_y)   
+    base_material_entry.insert(0,app_info.base_material_material_content)
+
+
+    #Set "thickness" input box
+    base_thickness_entry = tk.Entry(gui_window, width=app_info.base_thickness_box_w,\
+        bg=app_info.base_thickness_box_bg,fg=app_info.base_thickness_box_fg)
+    base_thickness_entry.place(x=app_info.base_thickness_box_x,y=app_info.base_thickness_box_y)   
+    base_thickness_entry.insert(0,app_info.base_material_thickness_content)
+
+    #Set "thickness" input label
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    base_material_label = tk.Label(gui_window, text=app_info.base_material_thickness_header, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.base_material_material_text_color)
+    base_material_label.place(x=app_info.base_thickness_x,y=app_info.base_thickness_y)    
+
+    #Set "joint type" input box
+    joint_type_entry = tk.Entry(gui_window, width=app_info.joint_type_box_w,\
+        bg=app_info.joint_type_box_bg,fg=app_info.joint_type_box_fg)
+    joint_type_entry.place(x=app_info.joint_type_box_x,y=app_info.joint_type_box_y)   
+    joint_type_entry.insert(0,app_info.base_material_joint_content)
+
+    #Set "joint type" input label
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    base_joint_label = tk.Label(gui_window, text=app_info.base_material_joint_header, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.base_material_material_text_color)
+    base_joint_label.place(x=app_info.joint_type_x,y=app_info.joint_type_y)  
+
+def filler_wire_init(gui_window):
+    #Material details for fillerwire
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    fillerwire_sublabel = tk.Label(gui_window, text=app_info.fillerwire_label, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.fillerwire_text_color)
+    fillerwire_sublabel.place(x=app_info.fillerwire_label_x,y=app_info.fillerwire_label_y)
+
+    #Set "material" input label
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    fillerwire_material_label = tk.Label(gui_window, text=app_info.fillerwire_header, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.base_material_material_text_color)
+    fillerwire_material_label.place(x=app_info.fillerwire_material_x,y=app_info.fillerwire_material_y)
+
+    #Set "material" input box
+    fillerwire_material_entry = tk.Entry(gui_window, width=app_info.base_material_box_w,\
+        bg=app_info.base_material_box_bg,fg=app_info.base_material_box_fg)
+    fillerwire_material_entry.place(x=app_info.fillerwire_material_box_x,y=app_info.fillerwire_material_box_y)   
+    fillerwire_material_entry.insert(0,app_info.fillerwire_material_content)
+
+
+    #Set "diameter" input box
+    fillerwire_diameter_entry = tk.Entry(gui_window, width=app_info.fillerwire_diameter_box_w,\
+        bg=app_info.base_thickness_box_bg,fg=app_info.base_thickness_box_fg)
+    fillerwire_diameter_entry.place(x=app_info.fillerwire_diameter_box_x,y=app_info.fillerwire_diameter_box_y)   
+    fillerwire_diameter_entry.insert(0,app_info.fillerwire_diameter_content)
+
+    #Set "diameter" input label
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    fillerwire_diameter_label = tk.Label(gui_window, text=app_info.fillerwire_diameter_header , font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.base_material_material_text_color)
+    fillerwire_diameter_label.place(x=app_info.fillerwire_diameter_x,y=app_info.fillerwire_diameter_y)    
+
+
+def protective_gas_init(gui_window):
+    #Set "protective gas" input label
+    fontStyle = tkFont.Font(family=app_info.base_material_fontstyle, size=app_info.base_material_size)
+    base_joint_label = tk.Label(gui_window, text=app_info.fillerwire_gas_header, font=fontStyle,\
+        bg=app_info.base_material_bg,fg=app_info.fillerwire_text_color)
+    base_joint_label.place(x=app_info.fillerwire_gas_x,y=app_info.fillerwire_gas_y)  
+
+    #Set "protective gas" input box
+    joint_type_entry = tk.Entry(gui_window, width=app_info.fillerwire_gas_box_w,\
+        bg=app_info.joint_type_box_bg,fg=app_info.joint_type_box_fg)
+    joint_type_entry.place(x=app_info.fillerwire_gas_box_x,y=app_info.fillerwire_gas_box_y)   
+    joint_type_entry.insert(0,app_info.fillerwire_gas_content)
 
 def main_window_init():
     window = tk.Tk()
@@ -298,6 +401,19 @@ def main():
 
     #Draw input boundary boxes
     draw_input_bondary(gs.input_area)
+
+    #Setup canvas for configuration zone
+    gs.config_area = tk.Canvas(gs.main_window, width=app_info.config_canvas_w, height=app_info.config_canvas_h,\
+        bg = app_info.config_canvas_color, bd = app_info.config_canvas_thick, highlightthickness=app_info.config_canvas_highlight)
+    gs.config_area.place(x=app_info.config_canvas_x,y=app_info.config_canvas_y)    
+
+    #Draw config boundary boxes
+    draw_config_boundary(gs.config_area)
+
+    #Setup different interfaces on config canvas
+    base_metal_material_init(gs.config_area)
+    filler_wire_init(gs.config_area)
+    protective_gas_init(gs.config_area)
 
     #Setup canvas for message zone
     gs.message_area = tk.Canvas(gs.main_window,width=app_info.msg_canvas_w, height=app_info.msg_canvas_h,\
