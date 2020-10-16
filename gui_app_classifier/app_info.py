@@ -2,7 +2,7 @@
 
 #main interface
 #--------------------------------------------------------------------
-app_main_title = 'CNERC AI Welding Parameters Classifier'
+app_main_title = 'CNERC AI Welding Defects Classifier'
 app_main_geometry = '800x700'
 app_main_background = '#292929'
 #--------------------------------------------------------------------
@@ -14,7 +14,7 @@ header_style_1 = "Lucida Grande"
 header_style_2 = "Helvetica"
 header_style_3 = "DejaVu Serif"
 
-app_main_header = 'CNERC AI Welding Parameters Classifier'
+app_main_header = 'CNERC AI Welding Defects Classifier'
 app_header_fontstyle = header_style_3
 app_header_size = 15
 app_header_x = 20
