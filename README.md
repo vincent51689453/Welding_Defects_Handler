@@ -15,10 +15,10 @@ AI based welding parameters classifier
 This gui can help you to classify the welding defects by inputting three parameters. After inputting the parameters, you can press "confirm" and it will do the maths.
 
 ### A. Basic User Interface
-![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/basic_classifier_layout_3.png)
+![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/basic_classifier_layout_4.png)
 
 ### B. Demo
-![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/demo_classifier_3.gif)
+![image](https://github.com/vincent51689453/Welding_Defects_Handler/blob/master/git_image/demo_classifier_4.gif)
 
 Training MLP
 -------------------------------------------
